@@ -18,7 +18,7 @@ public class TestController {
      *@Date: 2020/4/24 21:04
      */
     @RequestMapping(value = "/consumer",method = RequestMethod.GET)
-    public String helloConsumer(){
+    public String  helloConsumer(){
         return restTemplate.getForEntity("http://TEXT-CORRECTION/test/hello", String.class).getBody();
     }
 }
