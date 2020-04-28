@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nmefc</groupId>
-	<artifactId>ribbon-consumer</artifactId>
+	<artifactId>text-correction</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ribbon-consumer</name>
-	<description>Demo project for Spring Boot</description>
+	<name>text-correction</name>
+	<description>text-correction project</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -20,11 +20,43 @@
 	</properties>
 
 	<dependencies>
+		<!--加入Web开发框架-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--加入客户端负载均衡器-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-boot-starter-ribbon</artifactId>-->
+		<!--</dependency>-->
+		<!--作为Eureka的客户端之一-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<!--引入持久层框架-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
+		<!--</dependency>-->
+		<!--引入mysql驱动-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--引入数据库连接池-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.10</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -56,7 +88,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.yml</include>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<!--注册资源目录就是用来提供目录，提供src/main/java的.xml或则ini之类的文件的路径，用**/*.xml这种加后缀名的方式更容易准确找到-->
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+
+					<include>**/*.xml</include>
+					<include>*.yml</include>
+					<include>*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
 	</build>
+<!--添加资源路径-->
+
+
 
 </project>

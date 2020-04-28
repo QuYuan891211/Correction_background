@@ -2,10 +2,25 @@
 server:
   port: 8001
 
+mybatis:
+#  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.nmefc.correctionsys.entity
+
+
+
+
 spring:
   application:
   #指定服务名称
     name: text-correction
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/text_correction?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password:
+#    type: com.alibaba.druid.pool.DruidDataSource
+
 eureka:
   client:
 #  是否向注册中心获取服务这里我们通过两个注册中心互相注册，搭建了注册中心的双节点集群，由于defaultZone使用了域名，所以还需在本机的host文件中配置一下。
@@ -14,5 +29,6 @@ eureka:
     register-with-eureka: true
     #默认注册中心URL,这里我们让他注册到两个注册中心上
     service-url:
-      defaultZone : http://replica1:5000/eureka/,http://replica2:5001/eureka/
+      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+
 
