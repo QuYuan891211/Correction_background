@@ -10,8 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -82,14 +81,37 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         List<TextInfo> textInfoList = getVersionListById(id);
         //1.如果为空，说明该id没有模板；如果不为空，但isdel==1，说明所有模板都已删，此时返回true
         if(textInfoList.size() < 1){return true;}
-        if(textInfoList.stream().allMatch(textInfo -> textInfo.getIsDelete() == 1)){return true;}
+        if(textInfoList.stream().allMatch(textInfo -> textInfo.getIsDelete() == true)){return true;}
         //2.检查该isdel==0的信息是否为最新版本，若是则反馈false
 //        textInfoList.stream().sorted((p1,p2) -> p2.gettVersion() - p1.gettVersion()).collect(Collectors.toList());
         //打印检查是否排序
 
-        if(textInfoList.get(0).getIsDelete()==0){return false;}
+        if(textInfoList.get(0).getIsDelete()==false){return false;}
         //3.否则后台记录错误并处理（非最新版记录未软删除异常）后，反馈false
         return false;
+    }
+    /**
+     *@Description:（5）查询最新文字模板列表: 在数据库text_info中查询所有数据，选出未删除，且最新版本的文字模板；
+     * 如department不为null则进一步筛选出复合部门要求的数据.
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/5 1:00
+     */
+    @Override
+    public List<TextInfo> getLastTextInfoByDepartment(Integer departmentId) {
+        TextInfoExample textInfoExample = new TextInfoExample();
+        List<TextInfo> textInfoList = new ArrayList<>();
+        //1.找出未删除且版本最新的
+        textInfoExample.setOrderByClause("tid DESC, t_version DESC");
+        textInfoExample.createCriteria().andIsDeleteEqualTo(false);
+        //2.如department不为null则进一步筛选出复合部门要求的数据.
+        if (departmentId !=null){
+            textInfoExample.createCriteria().andDepartmentEqualTo(departmentId);
+        }
+        textInfoList = this.selectByExample(textInfoExample);
+        List<TextInfo> uniqueList = textInfoList.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(TextInfo::getTid))),ArrayList::new));
+        return uniqueList;
     }
 
 

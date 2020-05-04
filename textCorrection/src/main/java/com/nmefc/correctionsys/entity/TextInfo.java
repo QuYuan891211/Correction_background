@@ -7,7 +7,7 @@ public class TextInfo extends TextInfoKey {
 
     private Date gmtCreate;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
     private String tName;
 
@@ -31,11 +31,11 @@ public class TextInfo extends TextInfoKey {
         this.gmtCreate = gmtCreate;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 

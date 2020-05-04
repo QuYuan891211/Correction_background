@@ -32,5 +32,13 @@ public interface TextInfoService extends BaseService<TextInfo,TextInfoKey,TextIn
      *@Date: 2020/5/5 0:41
      */
     TextInfo getTextInfoByIdAndVersion(Integer id, Integer version);
+    /**
+     *@Description:（5）查询最新文字模板列表
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/5 0:59
+     */
+    List<TextInfo> getLastTextInfoByDepartment(Integer departmentId);
 
 }

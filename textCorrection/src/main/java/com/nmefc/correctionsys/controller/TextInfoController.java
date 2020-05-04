@@ -63,4 +63,17 @@ public class TextInfoController {
         return textInfo;
     }
 
+    /**
+     *@Description:（5）查询最新文字模板列表
+     *@Param: [departmentId]
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/5 1:23
+     */
+    @GetMapping(value = "/textInfoListByDepartment")
+    public List<TextInfo> getTextInfoListByDepartment(Integer departmentId){
+        List<TextInfo> textInfoList = textInfoService.getLastTextInfoByDepartment(departmentId);
+        if(textInfoList == null && textInfoList.size() < 1){return null;}
+        return textInfoList;
+    }
 }
