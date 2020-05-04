@@ -1,12 +1,15 @@
 #指定端口号
 server:
   port: 8001
-
+log4j:
+  debug: true
+  rootLogger: debug, stdout
 mybatis:
 #  config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: com.nmefc.correctionsys.entity
-
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 

@@ -1,5 +1,8 @@
 package com.nmefc.correctionsys.service;
 
-public interface BaseService {
-    Integer test(Integer id);
+import java.util.List;
+
+public interface BaseService<T,K,E> {
+    List<T> selectByExample(E e);
+
 }

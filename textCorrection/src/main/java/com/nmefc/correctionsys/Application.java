@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@MapperScan(value = "com.nmefc.correctionsys.mapper")
+@MapperScan(value = "com.nmefc.correctionsys.dao")
 @EnableDiscoveryClient
 @SpringBootApplication
 public class Application {
