@@ -1,10 +1,13 @@
 package com.nmefc.correctionsys.controller;
 
+import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/textInfo")
@@ -15,10 +18,21 @@ public class TextInfoController {
 
 
 
-
-
-    
-
+    /**
+     *@Description: （7）查询指定文字模板的最新版本号
+     *@Param: [id]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/4 23:51
+     */
+    @GetMapping(value = "/lastVersion")
+    public Integer getLastVersion(Integer id){
+        //1. 数据校验
+        if(id == null){return 0;}
+        List<TextInfo> textInfoList =  textInfoService.getVersionListById(id);
+        if(textInfoList != null || textInfoList.size() > 0){return textInfoList.get(0).gettVersion();}
+        return 0;
+    }
     /**
      *@Description:（8）查询指定文字模板的是否已删除
      *@Param: [id]
