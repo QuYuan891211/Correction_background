@@ -47,4 +47,20 @@ public class TextInfoController {
         return textInfoService.isDelete(id);
 
     }
+    /**
+     *@Description: （6）查询指定文字模板
+     *@Param: [id, version]
+     *@Return: com.nmefc.correctionsys.entity.TextInfo
+     *@Author: QuYuan
+     *@Date: 2020/5/5 0:55
+     */
+    @GetMapping(value = "/textInfo")
+    public TextInfo getTextInfo(Integer id, Integer version){
+        //1. 数据校验
+        if(id == null && version == null){return null;}
+        TextInfo textInfo = textInfoService.getTextInfoByIdAndVersion(id,version);
+        if(textInfo == null && textInfo.getTid() == null){return null;}
+        return textInfo;
+    }
+
 }

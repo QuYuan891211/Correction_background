@@ -46,4 +46,15 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
             return list;
         }
     }
+    /**
+     *@Description:根据主键查询（联合主键)
+     *@Param: [k]
+     *@Return: T
+     *@Author: QuYuan
+     *@Date: 2020/5/5 0:44
+     */
+    @Override
+    public T selectByPrimaryKey(K k) {
+       return baseMapper.selectByPrimaryKey(k);
+    }
 }

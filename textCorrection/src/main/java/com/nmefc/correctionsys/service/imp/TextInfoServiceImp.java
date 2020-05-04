@@ -31,7 +31,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         return false;
     }
     /**
-     *@Description:查询指定文字模板的最新版本号:在数据库text_info中查询所有数据，
+     *@Description:(7)查询指定文字模板的最新版本号:在数据库text_info中查询所有数据，
      * 选出指定tid的任务，并抽取其最新的版本号进行输出
      *@Param: [id]
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
@@ -47,8 +47,28 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         List<TextInfo> textInfoList = new ArrayList<>();
         return this.selectByExample(textInfoExample);
     }
+    /**
+     *@Description:（6）查询指定文字模板 : 在数据库text_info中查询所有数据，选出指定tid和版本的任务
+     *@Param: [id, version]
+     *@Return: com.nmefc.correctionsys.entity.TextInfo
+     *@Author: QuYuan
+     *@Date: 2020/5/5 0:42
+     */
+    @Override
+    public TextInfo getTextInfoByIdAndVersion(Integer id, Integer version) {
+        TextInfoKey key = new TextInfoKey();
+        key.setTid(id);
+        key.settVersion(version);
+        TextInfo textInfo = new TextInfo();
+        try{
+            textInfo = this.selectByPrimaryKey(key);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return textInfo;
+    }
 
-/**
+    /**
  *@Description:(8)查询指定文字模板的是否已删除: 在数据库text_info中查询所有数据，选出指定tid的任务，并查看其是否所有isdel==1；是则反馈true；
 否则检查该isdel==0的信息是否为最新版本，若是则反馈false
 否则后台记录错误并处理（非最新版记录未软删除异常）后，反馈false
