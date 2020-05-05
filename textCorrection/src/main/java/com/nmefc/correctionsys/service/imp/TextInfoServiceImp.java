@@ -113,6 +113,20 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         List<TextInfo> uniqueList = textInfoList.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(TextInfo::getTid))),ArrayList::new));
         return uniqueList;
     }
-
-
+    /**
+     *@Description:（1）新增文字模板: 在text_info表新建一条数据，填入文字模板名（t_name）、文字模板简称（t_abbreviation）、所属部门（关联department），
+     * tid自动新增，t_version=1，creat_time为当前时间，isdel=0；
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 11:18
+     */
+    @Override
+    public Integer saveTextInfo(TextInfo textInfo) {
+        textInfo.setGmtCreate(new Date());
+        textInfo.setGmtModified(new Date());
+        //1.设置版本号为1
+        textInfo.settVersion(1);
+        return this.insertSelective(textInfo);
+    }
 }

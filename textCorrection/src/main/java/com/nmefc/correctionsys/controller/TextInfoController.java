@@ -4,6 +4,7 @@ import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -75,5 +76,17 @@ public class TextInfoController {
         List<TextInfo> textInfoList = textInfoService.getLastTextInfoByDepartment(departmentId);
         if(textInfoList == null && textInfoList.size() < 1){return null;}
         return textInfoList;
+    }
+    /**
+     *@Description:（1）新增文字模板
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 11:28
+     */
+    @PostMapping(value = "/save")
+    public Integer saveTextInfo(TextInfo textInfo){
+        if(textInfo == null && textInfo.gettName() == null && textInfo.gettName().length() == 0){return 0;}
+        return textInfoService.saveTextInfo(textInfo);
     }
 }

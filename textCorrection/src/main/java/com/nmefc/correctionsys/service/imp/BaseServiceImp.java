@@ -57,4 +57,22 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
     public T selectByPrimaryKey(K k) {
        return baseMapper.selectByPrimaryKey(k);
     }
+    /**
+     *@Description: 插入一条记录
+     *@Param: [t]
+     *@Return: int
+     *@Author: QuYuan
+     *@Date: 2020/5/5 10:57
+     */
+    @Override
+    public int insertSelective(T t) {
+        int result = 0;
+        try {
+            result = baseMapper.insertSelective(t);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }finally {
+            return result;
+        }
+    }
 }

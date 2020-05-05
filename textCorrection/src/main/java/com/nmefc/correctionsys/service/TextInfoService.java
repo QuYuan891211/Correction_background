@@ -41,4 +41,12 @@ public interface TextInfoService extends BaseService<TextInfo,TextInfoKey,TextIn
      */
     List<TextInfo> getLastTextInfoByDepartment(Integer departmentId);
 
+    /**
+     *@Description:（1）新增文字模板
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 10:59
+     */
+    Integer saveTextInfo(TextInfo textInfo);
 }
