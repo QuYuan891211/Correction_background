@@ -49,4 +49,13 @@ public interface TextInfoService extends BaseService<TextInfo,TextInfoKey,TextIn
      *@Date: 2020/5/5 10:59
      */
     Integer saveTextInfo(TextInfo textInfo);
+    /**
+     *@Description:（2）软删除文字模板
+     *@Param: [id]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 11:45
+     */
+    Integer softDeleteByTid(TextInfo textInfo);
+
 }

@@ -129,4 +129,21 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         textInfo.settVersion(1);
         return this.insertSelective(textInfo);
     }
+    /**
+     *@Description: （2）软删除文字模板 在数据库text_info中按tid寻找
+     * 所有条目（应包括该文字模板的所有版本），并将所有条目的isdel改为1.
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 12:06
+     */
+    @Override
+    public Integer softDeleteByTid(TextInfo textInfo) {
+        try{
+           return textInfoMapper.softDeleteByTid(textInfo);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
 }

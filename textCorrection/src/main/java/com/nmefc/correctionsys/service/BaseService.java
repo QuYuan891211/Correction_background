@@ -6,4 +6,5 @@ public interface BaseService<T,K,E> {
     List<T> selectByExample(E e);
     T selectByPrimaryKey(K k);
     int insertSelective(T t);
+
 }

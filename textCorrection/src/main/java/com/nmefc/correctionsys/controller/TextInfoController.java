@@ -89,4 +89,17 @@ public class TextInfoController {
         if(textInfo == null && textInfo.gettName() == null && textInfo.gettName().length() == 0){return 0;}
         return textInfoService.saveTextInfo(textInfo);
     }
+    /**
+     *@Description: （2）软删除文字模板
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 12:19
+     */
+    @GetMapping(value = "/delete")
+    public Integer softDelete(TextInfo textInfo){
+        //1.数据校验
+        if(textInfo == null && textInfo.getTid() == null){return 0;}
+        return textInfoService.softDeleteByTid(textInfo);
+    }
 }
