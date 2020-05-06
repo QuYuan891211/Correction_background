@@ -6,6 +6,7 @@ import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.entity.TextInfoExample;
 import com.nmefc.correctionsys.entity.TextInfoKey;
 import com.nmefc.correctionsys.service.TextInfoService;
+import org.apache.ibatis.jdbc.Null;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         return false;
     }
     /**
-     *@Description:(7)查询指定文字模板的最新版本号:在数据库text_info中查询所有数据，
+     *@Description:(6)查询指定文字模板的最新版本号:在数据库text_info中查询所有数据，
      * 选出指定tid的任务，并抽取其最新的版本号进行输出
      *@Param: [id]
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
@@ -47,7 +48,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         return this.selectByExample(textInfoExample);
     }
     /**
-     *@Description:（6）查询指定文字模板 : 在数据库text_info中查询所有数据，选出指定tid和版本的任务
+     *@Description:（5）查询指定文字模板 : 在数据库text_info中查询所有数据，选出指定tid和版本的任务
      *@Param: [id, version]
      *@Return: com.nmefc.correctionsys.entity.TextInfo
      *@Author: QuYuan
@@ -68,7 +69,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
     }
 
     /**
- *@Description:(8)查询指定文字模板的是否已删除: 在数据库text_info中查询所有数据，选出指定tid的任务，并查看其是否所有isdel==1；是则反馈true；
+ *@Description:(7)查询指定文字模板的是否已删除: 在数据库text_info中查询所有数据，选出指定tid的任务，并查看其是否所有isdel==1；是则反馈true；
 否则检查该isdel==0的信息是否为最新版本，若是则反馈false
 否则后台记录错误并处理（非最新版记录未软删除异常）后，反馈false
  *@Param: [textInfoExample]
@@ -86,12 +87,21 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
 //        textInfoList.stream().sorted((p1,p2) -> p2.gettVersion() - p1.gettVersion()).collect(Collectors.toList());
         //打印检查是否排序
 
-        if(textInfoList.get(0).getIsDelete()==false){return false;}
-        //3.否则后台记录错误并处理（非最新版记录未软删除异常）后，反馈false
-        return false;
+        if(textInfoList.get(0).getIsDelete()==false) {
+            return false;
+        }else{
+            //3.否则后台记录错误并处理（非最新版记录未软删除异常）后，反馈false
+            TextInfo textInfo = new TextInfo();
+            textInfo.setTid(id);
+            softDeleteByTid(textInfo);
+            //[to-do]Log
+
+            return false;
+        }
+
     }
     /**
-     *@Description:（5）查询最新文字模板列表: 在数据库text_info中查询所有数据，选出未删除，且最新版本的文字模板；
+     *@Description:（4）查询最新文字模板列表: 在数据库text_info中查询所有数据，选出未删除，且最新版本的文字模板；
      * 如department不为null则进一步筛选出复合部门要求的数据.
      *@Param: []
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
@@ -145,5 +155,39 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
             System.out.println(ex.getMessage());
         }
         return 0;
+    }
+    /**
+     *@Description:（3）修改文字模板（增量）:在数据库text_info中按tid寻找所有条目
+     * （应包括该文字模板的所有版本），并将所有条目的isdel改为1；新增同tid号的一条数据，
+     * t_version比原有最大值+1；分别检查文字模板名、文字模板简称、部门是否为空（全空则报错），
+     * 不为空则将其内容复制到新的数据中，
+     * 否则将上一版的相应数据复制到新的数据中.即增加新版数据，按需更新，旧版isdel置1
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/5 12:38
+     */
+    @Override
+    public Integer updateTextInfo(TextInfo textInfo) {
+        //1.在数据库text_info中按tid寻找所有条目（应包括该文字模板的所有版本），并将所有条目的isdel改为1；
+        Integer result = this.softDeleteByTid(textInfo);
+        if (result == null || result == 0){return  0;}
+        Integer newVersion = 0;
+        //2.获取最新版本号
+        List<TextInfo> textInfoList = new ArrayList<>();
+        textInfoList = this.getVersionListById(textInfo.getTid());
+        if(textInfoList.size() < 1){return  0;}
+        newVersion = textInfoList.get(0).gettVersion() + 1;
+        textInfo.settVersion(newVersion);
+        //3.文字模板名、文字模板简称、部门是否为空（全空则报错），将上一版的相应数据复制到新的数据中.即增加新版数据，按需更新，旧版isdel置1
+        if(textInfo.gettName() == null && textInfo.getDepartment() == null && textInfo.gettAbbreviation() == null){
+            textInfo.settName(textInfoList.get(0).gettName() );
+            textInfo.setDepartment(textInfoList.get(0).getDepartment());
+            textInfo.settAbbreviation(textInfoList.get(0).gettAbbreviation());
+        }
+
+        textInfo.setGmtCreate(new Date());
+        textInfo.setGmtModified(new Date());
+        return this.insertSelective(textInfo);
     }
 }

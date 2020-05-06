@@ -54,8 +54,7 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
      *@Date: 2020/5/5 0:44
      */
     @Override
-    public T selectByPrimaryKey(K k) {
-       return baseMapper.selectByPrimaryKey(k);
+    public T selectByPrimaryKey(K k) { return baseMapper.selectByPrimaryKey(k);
     }
     /**
      *@Description: 插入一条记录

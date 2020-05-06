@@ -58,9 +58,9 @@ public class TextInfoController {
     @GetMapping(value = "/textInfo")
     public TextInfo getTextInfo(Integer id, Integer version){
         //1. 数据校验
-        if(id == null && version == null){return null;}
+        if(id == null || version == null){return null;}
         TextInfo textInfo = textInfoService.getTextInfoByIdAndVersion(id,version);
-        if(textInfo == null && textInfo.getTid() == null){return null;}
+        if(textInfo == null || textInfo.getTid() == null){return null;}
         return textInfo;
     }
 
@@ -74,7 +74,7 @@ public class TextInfoController {
     @GetMapping(value = "/textInfoListByDepartment")
     public List<TextInfo> getTextInfoListByDepartment(Integer departmentId){
         List<TextInfo> textInfoList = textInfoService.getLastTextInfoByDepartment(departmentId);
-        if(textInfoList == null && textInfoList.size() < 1){return null;}
+        if(textInfoList == null || textInfoList.size() < 1){return null;}
         return textInfoList;
     }
     /**
@@ -86,7 +86,7 @@ public class TextInfoController {
      */
     @PostMapping(value = "/save")
     public Integer saveTextInfo(TextInfo textInfo){
-        if(textInfo == null && textInfo.gettName() == null && textInfo.gettName().length() == 0){return 0;}
+        if(textInfo == null || textInfo.gettName() == null || textInfo.gettName().length() == 0){return 0;}
         return textInfoService.saveTextInfo(textInfo);
     }
     /**
@@ -99,7 +99,12 @@ public class TextInfoController {
     @GetMapping(value = "/delete")
     public Integer softDelete(TextInfo textInfo){
         //1.数据校验
-        if(textInfo == null && textInfo.getTid() == null){return 0;}
+        if(textInfo == null || textInfo.getTid() == null){return 0;}
         return textInfoService.softDeleteByTid(textInfo);
+    }
+    @GetMapping(value = "/update")
+    public Integer update(TextInfo textInfo){
+        if(textInfo == null || textInfo.getTid() == null){return 0;}
+        return textInfoService.updateTextInfo(textInfo);
     }
 }
