@@ -4,6 +4,7 @@ import com.nmefc.correctionsys.dao.TextDataMapper;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
 import com.nmefc.correctionsys.service.TextDataService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -101,12 +102,36 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         //[to-do]做完登录系统后，这里面要改为从Session中得到username
         textData.setChecker("默认审核员");
         textData.setGmtModified(new Date());
-    
+
         try{
             return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
+        return 0;
+    }
+/**
+ *@Description:（13）审核人员取消签名:查询当日已编辑文本记录，根据TextData.id从所查询到的列表中选出记录；
+检查所选出的记录中审核人员名称与现登录人员是否相同；
+相同则将text_data库表中对应记录的checker置空；
+否则提示“审核人员身份验证错误”
+ *@Param: [textData]
+ *@Return: java.lang.Integer
+ *@Author: QuYuan
+ *@Date: 2020/5/7 13:03
+ */
+    public Integer cancelLastCheck(TextData textData){
+        //[to-do]做完登录系统后，这里面要改为从Session中得到username
+        if("默认审核员".equals(textData.getChecker())){
+            textData.setChecker(null);
+            textData.setGmtModified(new Date());
+            try{
+                return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+            }catch (Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+
         return 0;
     }
 

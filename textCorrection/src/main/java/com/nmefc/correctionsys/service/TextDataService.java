@@ -30,4 +30,12 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/7 10:00
      */
     Integer lastCheck(TextData textData);
+    /**
+     *@Description:（13）审核人员取消签名
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 13:00
+     */
+    Integer cancelLastCheck(TextData textData);
 }
