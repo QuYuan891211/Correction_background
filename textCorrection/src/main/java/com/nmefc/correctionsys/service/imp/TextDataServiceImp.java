@@ -66,4 +66,24 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         }
 
     }
+    /**
+     *@Description:（7）查询当日已编辑文本记录
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextData>
+     *@Author: QuYuan
+     *@Date: 2020/5/7 9:00
+     */
+    public List<TextData> getAll(){
+        List<TextData> textDataList = new ArrayList<>();
+        TextDataExample textDataExample = new TextDataExample();
+        textDataExample.setOrderByClause("t_version DESC");
+        try{
+            textDataList = textDataMapper.selectByExampleWithBLOBs(textDataExample);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }finally {
+            return textDataList;
+        }
+
+    }
 }
