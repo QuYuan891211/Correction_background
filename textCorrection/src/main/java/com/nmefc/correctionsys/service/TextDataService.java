@@ -22,4 +22,12 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/7 9:04
      */
     List<TextData> getAll();
+    /**
+     *@Description:（12）审核人员签名
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 10:00
+     */
+    Integer lastCheck(TextData textData);
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.soap.Text;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -85,6 +86,28 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
             return textDataList;
         }
 
+    }
+    /**
+     *@Description: （12）审核人员签名:查询当日已编辑文本记录，根据TextData.id从所查询到的列表中选出记录；
+    检查所选出的记录中isok是否为1；
+    是则将text_data库表中对应记录的checker填入审核人员名；
+    否则提示“预报员未确认完成”
+     *@Param: [id]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 9:51
+     */
+    public Integer lastCheck(TextData textData){
+        //[to-do]做完登录系统后，这里面要改为从Session中得到username
+        textData.setChecker("默认审核员");
+        textData.setGmtModified(new Date());
+    
+        try{
+            return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return 0;
     }
 
 }

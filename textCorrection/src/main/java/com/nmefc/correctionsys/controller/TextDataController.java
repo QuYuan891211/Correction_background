@@ -51,4 +51,18 @@ public class TextDataController {
        if(id == null){return 0;}
        return textDataService.deleteByPrimaryKey(id);
    }
+    /**
+     *@Description:（12）审核人员签名
+     *@Param: [textData]
+     *@Return: java.lang.String
+     *@Author: QuYuan
+     *@Date: 2020/5/7 10:04
+     */
+   @GetMapping(value = "/lastCheck")
+    public String lastCheck(TextData textData){
+       if(textData == null ||textData.getGmtCreate() == null ||textData.gettVersion() == null||textData.getTid() == null|| textData.getId() == 0||textData.getIsok()==null){return "传入参数有误";}
+       if(textData.getIsok() == false){return "预报员未确认完成";}
+       if(0== textDataService.lastCheck(textData)){return "确认失败";}
+       return "确认成功";
+   }
 }

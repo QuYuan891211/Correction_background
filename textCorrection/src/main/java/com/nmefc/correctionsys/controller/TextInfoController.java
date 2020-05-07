@@ -102,6 +102,13 @@ public class TextInfoController {
         if(textInfo == null || textInfo.getTid() == null){return 0;}
         return textInfoService.softDeleteByTid(textInfo);
     }
+    /**
+     *@Description:（8）修改文字模板（增量）
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 10:12
+     */
     @GetMapping(value = "/update")
     public Integer update(TextInfo textInfo){
         if(textInfo == null || textInfo.getTid() == null){return 0;}

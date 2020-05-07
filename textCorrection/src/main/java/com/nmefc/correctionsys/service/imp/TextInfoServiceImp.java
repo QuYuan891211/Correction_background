@@ -149,7 +149,9 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
      */
     @Override
     public Integer softDeleteByTid(TextInfo textInfo) {
+
         try{
+            textInfo.setGmtModified(new Date());
            return textInfoMapper.softDeleteByTid(textInfo);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -157,7 +159,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
         return 0;
     }
     /**
-     *@Description:（3）修改文字模板（增量）:在数据库text_info中按tid寻找所有条目
+     *@Description:（8）修改文字模板（增量）:在数据库text_info中按tid寻找所有条目
      * （应包括该文字模板的所有版本），并将所有条目的isdel改为1；新增同tid号的一条数据，
      * t_version比原有最大值+1；分别检查文字模板名、文字模板简称、部门是否为空（全空则报错），
      * 不为空则将其内容复制到新的数据中，
@@ -169,6 +171,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
      */
     @Override
     public Integer updateTextInfo(TextInfo textInfo) {
+
         //1.在数据库text_info中按tid寻找所有条目（应包括该文字模板的所有版本），并将所有条目的isdel改为1；
         Integer result = this.softDeleteByTid(textInfo);
         if (result == null || result == 0){return  0;}
