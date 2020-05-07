@@ -39,4 +39,16 @@ public class TextDataController {
    public List<TextData> getAllTextData(){
        return textDataService.getAll();
    }
+   /**
+    *@Description:（8）删除指定的当日已编辑文本记录
+    *@Param: []
+    *@Return: java.lang.Integer
+    *@Author: QuYuan
+    *@Date: 2020/5/7 9:29
+    */
+   @GetMapping(value = "/deleteOne")
+   public Integer deleteById(Integer id){
+       if(id == null){return 0;}
+       return textDataService.deleteByPrimaryKey(id);
+   }
 }

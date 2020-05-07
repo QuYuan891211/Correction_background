@@ -67,7 +67,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
 
     }
     /**
-     *@Description:（7）查询当日已编辑文本记录
+     *@Description:（7）查询当日已编辑文本记录: 从text_data库中查询所有数据并返回
      *@Param: []
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextData>
      *@Author: QuYuan
@@ -86,4 +86,5 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         }
 
     }
+
 }

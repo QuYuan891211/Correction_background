@@ -74,4 +74,14 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
             return result;
         }
     }
+
+    @Override
+    public int deleteByPrimaryKey(K key) {
+        try {
+            return baseMapper.deleteByPrimaryKey(key);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
 }
