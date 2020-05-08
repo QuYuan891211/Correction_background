@@ -1,9 +1,13 @@
 package com.nmefc.correctionsys.service.imp;
 
 import com.nmefc.correctionsys.dao.TextDataMapper;
+import com.nmefc.correctionsys.dao.TextInfoMapper;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
+import com.nmefc.correctionsys.entity.TextInfo;
+import com.nmefc.correctionsys.entity.TextInfoKey;
 import com.nmefc.correctionsys.service.TextDataService;
+import com.nmefc.correctionsys.service.TextInfoService;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +28,10 @@ import java.util.List;
 public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextDataExample> implements TextDataService{
     @Autowired
     private TextDataMapper textDataMapper;
+//    @Autowired
+//   private TextInfoMapper textInfoMapper;
+    @Autowired
+    private TextInfoService textInfoService;
     @Override
     boolean checkParameters(TextData textData) {
         return false;
@@ -134,5 +142,67 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
 
         return 0;
     }
+    /**
+     *@Description:（9）根据文本记录查询文本模板:查询当日已编辑文本记录，根据其tid、t_version从text_info表中查询相关记录并返回
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/7 14:00
+     */
+    public List<TextInfo> getTextInfoByTextData(){
+        List<TextData> textDataList = new ArrayList<>();
+        List<TextInfo> textInfoList = new ArrayList<>();
+        textDataList = getAll();
+        textDataList.forEach(item ->{
+            if(item.getTid() != null && item.gettVersion() != null){
+                TextInfoKey textInfoKey = new TextInfoKey();
+                textInfoKey.setTid(item.getTid());
+                textInfoKey.settVersion(item.gettVersion());
+                textInfoList.add(textInfoService.selectByPrimaryKey(textInfoKey));
+            }
+        });
+        return textInfoList;
+    }
+//    /**
+//     *@Description:（2）根据id删除文本记录
+//     *@Param: [id]
+//     *@Return: java.lang.Integer
+//     *@Author: QuYuan
+//     *@Date: 2020/5/7 14:38
+//     */
+//    public Integer deleteById(Integer id){
+//        return deleteByPrimaryKey(id);
+//    }
+    /**
+     *@Description:（1）根据模板新建文本记录: 新建一条text_data记录，tid=TextInfo.tid，t_version为最新版本号，
+     * date为当天日期，creat_time为当前时间，isok=0；f
+     * orecaster、checker、t_data为空
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 14:48
+     */
+    public Integer saveOneTextDataByTextInfo(TextInfo textInfo){
 
+        //1.获取最新版本号
+        Integer latestVersion = textInfoService.getVersionListById(textInfo.getTid()).get(0).gettVersion();
+        TextDataExample textDataExample = new TextDataExample();
+        textDataExample.or().andTidEqualTo(textInfo.getTid()).andTVersionEqualTo(latestVersion);
+        List<TextData> textDataList = new ArrayList<>();
+        textDataList = selectByExample(textDataExample);
+        if(textDataList.size() < 1){
+            //没有则新建
+          TextData textData = new TextData();
+          textData.setGmtModified(new Date());
+          textData.setDate(new Date());
+          textData.setIsok(false);
+          textData.setGmtCreate(new Date());
+          textData.setTid(textInfo.getTid());
+          textData.settVersion(latestVersion);
+          //因为text类型的字段未赋值，所以可以使用不带BLOBS的方法
+          return insertSelective(textData);
+        }else {
+            return 0;
+        }
+    }
 }

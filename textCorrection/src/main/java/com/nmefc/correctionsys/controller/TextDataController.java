@@ -2,9 +2,11 @@ package com.nmefc.correctionsys.controller;
 
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
+import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -88,7 +90,7 @@ public class TextDataController {
      * @Author: QuYuan
      * @Date: 2020/5/7 10:04
      */
-    @GetMapping(value = "/cancelLastCheck")
+    @PostMapping(value = "/cancelLastCheck")
     public String cancelLastCheck(TextData textData) {
         if (textData == null || textData.getGmtCreate() == null ||textData.getGmtModified() == null || textData.gettVersion() == null || textData.getTid() == null || textData.getId() == 0 || textData.getIsok() == null) {
             return "传入参数有误";
@@ -97,5 +99,40 @@ public class TextDataController {
             return "审核人员身份验证错误";
         }
         return "取消成功";
+    }
+    /**
+     *@Description:（9）根据文本记录查询文本模板
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/7 14:09
+     */
+    @GetMapping(value = "/getTextInfo")
+    public List<TextInfo> getTextInfoByTextData(){
+        return textDataService.getTextInfoByTextData();
+    }
+//    /**
+//     *@Description:（2）根据id删除文本记录
+//     *@Param: [id]
+//     *@Return: java.lang.Integer
+//     *@Author: QuYuan
+//     *@Date: 2020/5/7 14:40
+//     */
+//    @PostMapping(value = "deleteById")
+//    public Integer deleteById(Integer id){
+//        if (id == null){return 0;}
+//        return textDataService.deleteById(id);
+//    }
+    /**
+     *@Description:（1）根据模板新建文本记录
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 20:50
+     */
+    @PostMapping(value = "/save")
+    public Integer saveOneTextData(TextInfo textInfo){
+        if(textInfo == null || textInfo.getTid() == null){ return 0; }
+        return textDataService.saveOneTextDataByTextInfo(textInfo);
     }
 }

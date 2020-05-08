@@ -39,7 +39,7 @@ public interface TextInfoService extends BaseService<TextInfo,TextInfoKey,TextIn
      *@Author: QuYuan
      *@Date: 2020/5/5 0:59
      */
-    List<TextInfo> getLastTextInfoByDepartment(Integer departmentId);
+    List<TextInfo> getLatestTextInfoByDepartment(Integer departmentId);
 
     /**
      *@Description:（1）新增文字模板

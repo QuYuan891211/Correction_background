@@ -109,7 +109,7 @@ public class TextInfoServiceImp extends BaseServiceImp<TextInfo,TextInfoKey,Text
      *@Date: 2020/5/5 1:00
      */
     @Override
-    public List<TextInfo> getLastTextInfoByDepartment(Integer departmentId) {
+    public List<TextInfo> getLatestTextInfoByDepartment(Integer departmentId) {
         TextInfoExample textInfoExample = new TextInfoExample();
         List<TextInfo> textInfoList = new ArrayList<>();
         //1.找出未删除且版本最新的

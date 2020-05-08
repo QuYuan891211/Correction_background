@@ -2,6 +2,7 @@ package com.nmefc.correctionsys.service;
 
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
+import com.nmefc.correctionsys.entity.TextInfo;
 
 import java.util.List;
 
@@ -38,4 +39,28 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/7 13:00
      */
     Integer cancelLastCheck(TextData textData);
+    /**
+     *@Description:（9）根据文本记录查询文本模板
+     *@Param: []
+     *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
+     *@Author: QuYuan
+     *@Date: 2020/5/7 14:00
+     */
+    List<TextInfo> getTextInfoByTextData();
+//    /**
+//     *@Description:（2）根据id删除文本记录
+//     *@Param: [id]
+//     *@Return: java.lang.Integer
+//     *@Author: QuYuan
+//     *@Date: 2020/5/7 14:39
+//     */
+//    Integer deleteById(Integer id);
+    /**
+     *@Description:（1）根据模板新建文本记录
+     *@Param: [textInfo]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/7 14:48
+     */
+    Integer saveOneTextDataByTextInfo(TextInfo textInfo);
 }

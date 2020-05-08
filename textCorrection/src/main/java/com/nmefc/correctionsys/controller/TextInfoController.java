@@ -20,14 +20,14 @@ public class TextInfoController {
 
 
     /**
-     *@Description: （7）查询指定文字模板的最新版本号
+     *@Description: （6）查询指定文字模板的最新版本号
      *@Param: [id]
      *@Return: java.lang.Integer
      *@Author: QuYuan
      *@Date: 2020/5/4 23:51
      */
-    @GetMapping(value = "/lastVersion")
-    public Integer getLastVersion(Integer id){
+    @GetMapping(value = "/latestVersion")
+    public Integer getLatestVersion(Integer id){
         //1. 数据校验
         if(id == null){return 0;}
         List<TextInfo> textInfoList =  textInfoService.getVersionListById(id);
@@ -35,7 +35,7 @@ public class TextInfoController {
         return 0;
     }
     /**
-     *@Description:（8）查询指定文字模板的是否已删除
+     *@Description:（7）查询指定文字模板的是否已删除
      *@Param: [id]
      *@Return: boolean
      *@Author: QuYuan
@@ -49,7 +49,7 @@ public class TextInfoController {
 
     }
     /**
-     *@Description: （6）查询指定文字模板
+     *@Description: （5）查询指定文字模板
      *@Param: [id, version]
      *@Return: com.nmefc.correctionsys.entity.TextInfo
      *@Author: QuYuan
@@ -65,7 +65,7 @@ public class TextInfoController {
     }
 
     /**
-     *@Description:（5）查询最新文字模板列表
+     *@Description:（4）查询最新文字模板列表
      *@Param: [departmentId]
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextInfo>
      *@Author: QuYuan
@@ -73,7 +73,7 @@ public class TextInfoController {
      */
     @GetMapping(value = "/textInfoListByDepartment")
     public List<TextInfo> getTextInfoListByDepartment(Integer departmentId){
-        List<TextInfo> textInfoList = textInfoService.getLastTextInfoByDepartment(departmentId);
+        List<TextInfo> textInfoList = textInfoService.getLatestTextInfoByDepartment(departmentId);
         if(textInfoList == null || textInfoList.size() < 1){return null;}
         return textInfoList;
     }
@@ -114,4 +114,6 @@ public class TextInfoController {
         if(textInfo == null || textInfo.getTid() == null){return 0;}
         return textInfoService.updateTextInfo(textInfo);
     }
+
+
 }
