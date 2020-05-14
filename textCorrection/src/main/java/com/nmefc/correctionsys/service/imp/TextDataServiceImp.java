@@ -205,4 +205,72 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
             return 0;
         }
     }
+    /**
+     *@Description: （5）更新当日文本记录:根据id在text_data表中查询记录，
+    若查到记录，则更新t_data、creat_time、isok置0；
+    若未查到记录，则报错
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/8 11:34
+     */
+    public Integer update(TextData textData){
+        textData.setIsok(false);
+        textData.setGmtModified(new Date());
+        try{
+           TextData textDataOld = selectByPrimaryKey(textData.getId());
+           if (textDataOld == null){return 0;}
+           textData.setGmtCreate(textDataOld.getGmtCreate());
+           textData.setDate(textDataOld.getDate());
+           textData.setChecker(null);
+           textData.setForecaster(textDataOld.getForecaster());
+           textData.setTid(textDataOld.getTid());
+           textData.settVersion(textData.gettVersion());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
+    /**
+     *@Description:（10）预报员确认完成: 查询text_data库表中对应记录，
+     * 将对应记录中的forecaster填入预报员名，
+     * 将isok置1，creat_time更新为当前时间；
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:25
+     */
+    public Integer checkByForecaster(TextData textData){
+        TextData data = selectByPrimaryKey(textData.getId());
+//        [to-do]后续要从登录系统中获取
+        if(data == null){return 0;}
+        data.setForecaster("默认预报员");
+        data.setGmtModified(new Date());
+        data.setIsok(true);
+        return textDataMapper.updateByPrimaryKeyWithBLOBs(data);
+    }
+    /**
+     *@Description: （11）预报员取消确认:查询text_data库表中对应记录；
+    检查TextData.checker是否为空：
+    若为空则将对应记录中的forecaster填入预报员名，将isok置0，creat_time更新为当前时间；
+    否则报错“应先取消审核”
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:53
+     */
+    public Integer uncheckByForecaster(TextData textData){
+        TextData data = selectByPrimaryKey(textData.getId());
+        if(data == null || data.getChecker() != null){return 0;}
+        data.setForecaster("默认预报员");
+        data.setGmtModified(new Date());
+        data.setIsok(false);
+        System.out.println(data.getIsok());
+        return textDataMapper.updateByPrimaryKeyWithBLOBs(data);
+    }
 }

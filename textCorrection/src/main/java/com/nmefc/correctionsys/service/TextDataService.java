@@ -63,4 +63,28 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/7 14:48
      */
     Integer saveOneTextDataByTextInfo(TextInfo textInfo);
+    /**
+     *@Description: （5）更新当日文本记录
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/8 11:35
+     */
+    Integer update(TextData textData);
+    /**
+     *@Description:（10）预报员确认完成
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:30
+     */
+    Integer checkByForecaster(TextData textData);
+    /**
+     *@Description:（11）预报员取消确认
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:57
+     */
+    Integer uncheckByForecaster(TextData textData);
 }

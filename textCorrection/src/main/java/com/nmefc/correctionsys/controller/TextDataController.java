@@ -135,4 +135,40 @@ public class TextDataController {
         if(textInfo == null || textInfo.getTid() == null){ return 0; }
         return textDataService.saveOneTextDataByTextInfo(textInfo);
     }
+    /**
+     *@Description: （5）更新当日文本记录
+     *@Param: [textData]
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/8 11:42
+     */
+    public Integer updateTextData(TextData textData){
+        if(textData == null||textData.getId() == null){ return 0; }
+        return textDataService.update(textData);
+    }
+    /**
+     *@Description:（10）预报员确认完成
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:34
+     */
+    @PostMapping(value = "/checkByForecaster")
+    public Integer checkByForecaster(TextData textData){
+        if(textData == null||textData.getId() == null){ return 0; }
+        return textDataService.checkByForecaster(textData);
+    }
+    /**
+     *@Description:(11)预报员取消确认
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 9:34
+     */
+    @PostMapping(value = "/uncheckByForecaster")
+    public Integer uncheckByForecaster(TextData textData){
+        if(textData == null||textData.getId() == null){ return 0; }
+        return textDataService.uncheckByForecaster(textData);
+    }
+
 }
