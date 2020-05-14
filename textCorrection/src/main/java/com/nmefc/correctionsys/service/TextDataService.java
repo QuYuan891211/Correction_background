@@ -87,4 +87,5 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/14 9:57
      */
     Integer uncheckByForecaster(TextData textData);
+
 }

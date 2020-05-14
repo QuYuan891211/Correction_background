@@ -1,18 +1,15 @@
 package com.nmefc.correctionsys.service.imp;
 
 import com.nmefc.correctionsys.dao.TextDataMapper;
-import com.nmefc.correctionsys.dao.TextInfoMapper;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
 import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.entity.TextInfoKey;
 import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextInfoService;
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.soap.Text;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

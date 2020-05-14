@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nmefc.correctionsys.dao.HiTextDataMapper" >
+  <resultMap id="BaseResultMap" type="com.nmefc.correctionsys.entity.HiTextData" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="t_version" property="tVersion" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="isok" property="isok" jdbcType="TINYINT" />
+    <result column="forecaster" property="forecaster" jdbcType="VARCHAR" />
+    <result column="checker" property="checker" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.nmefc.correctionsys.entity.HiTextData" extends="BaseResultMap" >
+    <result column="t_data" property="tData" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tid, t_version, date, gmt_create, isok, forecaster, checker, gmt_modified
+  </sql>
+  <sql id="Blob_Column_List" >
+    t_data
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.nmefc.correctionsys.entity.HiTextDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hi_text_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.nmefc.correctionsys.entity.HiTextDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from hi_text_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hi_text_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hi_text_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nmefc.correctionsys.entity.HiTextDataExample" >
+    delete from hi_text_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nmefc.correctionsys.entity.HiTextData" >
+    insert into hi_text_data (id, tid, t_version, 
+      date, gmt_create, isok, 
+      forecaster, checker, gmt_modified, 
+      t_data)
+    values (#{id,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{tVersion,jdbcType=INTEGER}, 
+      #{date,jdbcType=DATE}, #{gmtCreate,jdbcType=TIMESTAMP}, #{isok,jdbcType=TINYINT}, 
+      #{forecaster,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{tData,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nmefc.correctionsys.entity.HiTextData" >
+    insert into hi_text_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="tVersion != null" >
+        t_version,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="isok != null" >
+        isok,
+      </if>
+      <if test="forecaster != null" >
+        forecaster,
+      </if>
+      <if test="checker != null" >
+        checker,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="tData != null" >
+        t_data,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tVersion != null" >
+        #{tVersion,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isok != null" >
+        #{isok,jdbcType=TINYINT},
+      </if>
+      <if test="forecaster != null" >
+        #{forecaster,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tData != null" >
+        #{tData,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nmefc.correctionsys.entity.HiTextDataExample" resultType="java.lang.Integer" >
+    select count(*) from hi_text_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update hi_text_data
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.tid != null" >
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tVersion != null" >
+        t_version = #{record.tVersion,jdbcType=INTEGER},
+      </if>
+      <if test="record.date != null" >
+        date = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isok != null" >
+        isok = #{record.isok,jdbcType=TINYINT},
+      </if>
+      <if test="record.forecaster != null" >
+        forecaster = #{record.forecaster,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checker != null" >
+        checker = #{record.checker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tData != null" >
+        t_data = #{record.tData,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update hi_text_data
+    set id = #{record.id,jdbcType=INTEGER},
+      tid = #{record.tid,jdbcType=INTEGER},
+      t_version = #{record.tVersion,jdbcType=INTEGER},
+      date = #{record.date,jdbcType=DATE},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      isok = #{record.isok,jdbcType=TINYINT},
+      forecaster = #{record.forecaster,jdbcType=VARCHAR},
+      checker = #{record.checker,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      t_data = #{record.tData,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update hi_text_data
+    set id = #{record.id,jdbcType=INTEGER},
+      tid = #{record.tid,jdbcType=INTEGER},
+      t_version = #{record.tVersion,jdbcType=INTEGER},
+      date = #{record.date,jdbcType=DATE},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      isok = #{record.isok,jdbcType=TINYINT},
+      forecaster = #{record.forecaster,jdbcType=VARCHAR},
+      checker = #{record.checker,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nmefc.correctionsys.entity.HiTextData" >
+    update hi_text_data
+    <set >
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="tVersion != null" >
+        t_version = #{tVersion,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isok != null" >
+        isok = #{isok,jdbcType=TINYINT},
+      </if>
+      <if test="forecaster != null" >
+        forecaster = #{forecaster,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        checker = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tData != null" >
+        t_data = #{tData,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nmefc.correctionsys.entity.HiTextData" >
+    update hi_text_data
+    set tid = #{tid,jdbcType=INTEGER},
+      t_version = #{tVersion,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      isok = #{isok,jdbcType=TINYINT},
+      forecaster = #{forecaster,jdbcType=VARCHAR},
+      checker = #{checker,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      t_data = #{tData,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nmefc.correctionsys.entity.HiTextData" >
+    update hi_text_data
+    set tid = #{tid,jdbcType=INTEGER},
+      t_version = #{tVersion,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      isok = #{isok,jdbcType=TINYINT},
+      forecaster = #{forecaster,jdbcType=VARCHAR},
+      checker = #{checker,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
