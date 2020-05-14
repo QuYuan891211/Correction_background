@@ -84,4 +84,14 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
         }
         return 0;
     }
+
+    @Override
+    public int insert(T t) {
+        try {
+            return baseMapper.insert(t);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
 }

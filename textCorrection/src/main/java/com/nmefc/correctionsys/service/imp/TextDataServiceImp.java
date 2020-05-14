@@ -270,4 +270,23 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         System.out.println(data.getIsok());
         return textDataMapper.updateByPrimaryKeyWithBLOBs(data);
     }
+    /**
+     *@Description: 删除全部
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 16:14
+     */
+    public Integer deleteAll(){
+        TextDataExample textDataExample = new TextDataExample();
+        textDataExample.createCriteria().andIdIsNotNull();
+//        int count = 0;
+        try{
+            return textDataMapper.deleteByExample(textDataExample);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+//        [to-do]使用枚举约束
+        return 9999;
+    }
 }

@@ -7,5 +7,6 @@ public interface BaseService<T,K,E> {
     T selectByPrimaryKey(K k);
     int insertSelective(T t);
     int deleteByPrimaryKey(K key);
+    int insert(T t);
 
 }

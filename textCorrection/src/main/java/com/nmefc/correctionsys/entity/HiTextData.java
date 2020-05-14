@@ -2,7 +2,7 @@ package com.nmefc.correctionsys.entity;
 
 import java.util.Date;
 
-public class HiTextData {
+public class HiTextData{
     private Integer id;
 
     private Integer tid;

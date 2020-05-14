@@ -87,5 +87,12 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/14 9:57
      */
     Integer uncheckByForecaster(TextData textData);
-
+    /**
+     *@Description: 删除全部
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 16:13
+     */
+    Integer deleteAll();
 }

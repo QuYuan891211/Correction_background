@@ -1,12 +1,12 @@
 package com.nmefc.correctionsys.service.imp;
 
+import com.nmefc.correctionsys.dao.HiTextDataMapper;
 import com.nmefc.correctionsys.dao.TextInfoMapper;
-import com.nmefc.correctionsys.entity.HiTextData;
-import com.nmefc.correctionsys.entity.HiTextDataExample;
-import com.nmefc.correctionsys.entity.TextInfo;
-import com.nmefc.correctionsys.entity.TextInfoKey;
+import com.nmefc.correctionsys.entity.*;
 import com.nmefc.correctionsys.service.HiTextDataService;
+import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextInfoService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,10 @@ import java.util.stream.Collectors;
 public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTextDataExample> implements HiTextDataService {
     @Autowired
     private TextInfoService textInfoService;
+    @Autowired
+    private TextDataService textDataService;
+    @Autowired
+    private HiTextDataMapper hiTextDataMapper;
     @Override
     boolean checkParameters(HiTextData hiTextData) {
         return false;
@@ -32,7 +36,7 @@ public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTe
         HiTextDataExample hiTextDataExample = new HiTextDataExample();
         List<HiTextData> hiTextDataList = new ArrayList<>();
         hiTextDataExample.createCriteria().andDateBetween(start,end);
-        hiTextDataList = selectByExample(hiTextDataExample);
+        hiTextDataList = hiTextDataMapper.selectByExampleWithBLOBs(hiTextDataExample);
         return hiTextDataList;
     }
     /**
@@ -62,5 +66,26 @@ public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTe
         });
         return textInfoList;
     }
-    
+    /**
+     *@Description:（1）实时库转历史库:将text_data中的数据全部复制到
+     * hi_text_data中，并清空text_data中所有数据.
+     *@Param: []
+     *@Return: java.lang.Integer
+     *@Author: QuYuan
+     *@Date: 2020/5/14 15:58
+     */
+    public Integer saveHiTextData(){
+        TextDataExample textDataExample = new TextDataExample();
+        textDataExample.setOrderByClause("date ASC");
+        List<TextData> textDataList = new ArrayList<>();
+        textDataList = textDataService.getAll();
+        List<Integer> idList = new ArrayList<>();
+        textDataList.forEach(item->{
+//            idList.add(item.getId());
+            Integer id;
+            item.setId(null);
+            insertSelective(item);
+        });
+        return textDataService.deleteAll();
+    }
 }
