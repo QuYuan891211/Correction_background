@@ -26,5 +26,5 @@ public interface HiTextDataService extends BaseService<HiTextData,Integer,HiText
     List<TextInfo> getTextInfoByDate(Date start, Date end);
 
 
-    Integer saveHiTextData();
+//    Integer saveHiTextData();
 }

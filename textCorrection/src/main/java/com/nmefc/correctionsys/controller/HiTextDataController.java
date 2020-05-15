@@ -55,16 +55,16 @@ public class HiTextDataController {
         if (id == null){return 0;}
         return hiTextDataService.deleteByPrimaryKey(id);
     }
-    /**
-     *@Description: 定时任务：（1）实时库转历史库：将text_data
-     * 中的数据全部复制到hi_text_data中，并清空text_data中所有数据.
-     *@Param: []
-     *@Return: java.lang.Integer
-     *@Author: QuYuan
-     *@Date: 2020/5/14 15:47
-     */
-    @GetMapping(value = "/deleteAll")
-    public Integer deleteAll(){
-        return hiTextDataService.saveHiTextData();
-    }
+//    /**
+//     *@Description: 定时任务：（1）实时库转历史库：将text_data
+//     * 中的数据全部复制到hi_text_data中，并清空text_data中所有数据.
+//     *@Param: []
+//     *@Return: java.lang.Integer
+//     *@Author: QuYuan
+//     *@Date: 2020/5/14 15:47
+//     */
+//    @GetMapping(value = "/deleteAll")
+//    public Integer deleteAll(){
+//        return hiTextDataService.saveHiTextData();
+//    }
 }

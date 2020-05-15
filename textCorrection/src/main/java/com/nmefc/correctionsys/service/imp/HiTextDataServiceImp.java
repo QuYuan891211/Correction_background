@@ -8,6 +8,7 @@ import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -74,6 +75,9 @@ public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTe
      *@Author: QuYuan
      *@Date: 2020/5/14 15:58
      */
+//    [to-do]时间写入配置文件
+//    暂时10分钟，后根据业务需要调整
+    @Scheduled(fixedDelay = 600000)
     public Integer saveHiTextData(){
         TextDataExample textDataExample = new TextDataExample();
         textDataExample.setOrderByClause("date ASC");
