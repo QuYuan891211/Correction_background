@@ -10,6 +10,7 @@ import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -77,7 +78,9 @@ public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTe
      */
 //    [to-do]时间写入配置文件
 //    暂时10分钟，后根据业务需要调整
-    @Scheduled(fixedDelay = 600000)
+
+    @Scheduled(fixedDelay = 60000)
+    @Transactional
     public Integer saveHiTextData(){
         TextDataExample textDataExample = new TextDataExample();
         textDataExample.setOrderByClause("date ASC");
@@ -90,6 +93,7 @@ public class HiTextDataServiceImp extends BaseServiceImp<HiTextData,Integer,HiTe
             item.setId(null);
             insertSelective(item);
         });
+//        Integer y = 1/0;
         return textDataService.deleteAll();
     }
 }
