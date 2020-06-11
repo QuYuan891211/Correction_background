@@ -1,0 +1,17 @@
+
+spring:
+    application:
+        name : TestZuul
+
+server:
+    kport: 5001
+
+eureka:
+    client:
+        service-url:
+            defaultZone : http://localhost:5000/eureka/
+zuul:
+    routes:
+        sbService :
+            path : /api/v1/**
+            serviceId : test1

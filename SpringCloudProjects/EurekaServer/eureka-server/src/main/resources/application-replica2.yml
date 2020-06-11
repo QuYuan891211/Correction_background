@@ -1,0 +1,22 @@
+#指定端口号
+server:
+  port: 5001
+
+spring:
+  application:
+  #指定服务名称
+    name: eureka_server
+
+eureka:
+  instance:
+#  路径
+    hostname: replica2
+  client:
+#  是否向注册中心获取服务
+    fetch-registry: true
+#  是否向注册中心注册
+    register-with-eureka: true
+    #默认注册中心URL，这里我们让两个注册中心分别注册到对方上去，成为注册中心集群
+    service-url:
+      defaultZone : http://replica1:5000/eureka/
+

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.cloud:spring-boot-starter-ribbon:unknown">
+    <CLASSES>
+      <root url="jar://E:/Maven/repository/org/springframework/cloud/spring-boot-starter-ribbon/unknown/spring-boot-starter-ribbon-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/Maven/repository/org/springframework/cloud/spring-boot-starter-ribbon/unknown/spring-boot-starter-ribbon-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/Maven/repository/org/springframework/cloud/spring-boot-starter-ribbon/unknown/spring-boot-starter-ribbon-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

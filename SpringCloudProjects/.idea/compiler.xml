@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="client-common" />
+        <module name="eureka-server" />
+        <module name="test-ribbon" />
+        <module name="text-correction" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client-common" target="1.8" />
+      <module name="client-common (1)" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="SpringCloudProjects" target="1.5" />
+      <module name="test-ribbon" target="1.8" />
+      <module name="text-correction" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
