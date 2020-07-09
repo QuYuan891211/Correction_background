@@ -1,22 +1,23 @@
 #指定端口号
 server:
-  port: 5000
+  port: 9000
+log4j:
+  debug: true
+  rootLogger: debug, stdout
+
 
 spring:
   application:
   #指定服务名称
-    name: eureka_server
+    name: test-ribbon
 
 eureka:
-  instance:
-#  路径
-    hostname: replica1
   client:
 #  是否向注册中心获取服务这里我们通过两个注册中心互相注册，搭建了注册中心的双节点集群，由于defaultZone使用了域名，所以还需在本机的host文件中配置一下。
     fetch-registry: true
 #  是否向注册中心注册
     register-with-eureka: true
-    #默认注册中心URL,这里我们让两个注册中心分别注册到对方上去
+    #默认注册中心URL,这里我们让他注册到两个注册中心上
     service-url:
-      defaultZone : http://replica2:5001/eureka/
+      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
 

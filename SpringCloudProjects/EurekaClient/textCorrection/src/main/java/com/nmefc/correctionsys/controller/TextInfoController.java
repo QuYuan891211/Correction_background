@@ -9,15 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(value = "/textInfo")
 public class TextInfoController {
     @Autowired
     private TextInfoService textInfoService;
-
-
-
 
     /**
      *@Description: （6）查询指定文字模板的最新版本号
@@ -55,7 +53,7 @@ public class TextInfoController {
      *@Author: QuYuan
      *@Date: 2020/5/5 0:55
      */
-    @GetMapping(value = "/getTextInfo")
+    @PostMapping(value = "/getTextInfo")
     public TextInfo getTextInfo(Integer id, Integer version){
         //1. 数据校验
         if(id == null || version == null){return null;}

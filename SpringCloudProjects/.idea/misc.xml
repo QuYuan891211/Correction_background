@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaClient/client-common/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaClient/testRibbon/pom.xml" />
+        <option value="$PROJECT_DIR$/ZuulProxy/Gateway/pom.xml" />
       </list>
     </option>
   </component>

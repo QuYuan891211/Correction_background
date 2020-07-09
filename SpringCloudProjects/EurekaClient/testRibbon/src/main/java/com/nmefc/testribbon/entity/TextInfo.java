@@ -62,4 +62,16 @@ public class TextInfo extends TextInfoKey {
     public void setDepartment(Integer department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "TextInfo{" +
+                "gmtModified=" + gmtModified +
+                ", gmtCreate=" + gmtCreate +
+                ", isDelete=" + isDelete +
+                ", tName='" + tName + '\'' +
+                ", tAbbreviation='" + tAbbreviation + '\'' +
+                ", department=" + department +
+                '}';
+    }
 }

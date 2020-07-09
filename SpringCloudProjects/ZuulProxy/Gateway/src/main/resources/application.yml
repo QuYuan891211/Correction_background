@@ -1,0 +1,19 @@
+server:
+  port: 5002
+
+spring:
+  application:
+    name: zuul-proxy
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+
+zuul:
+  #配置过滤敏感的请求头信息，设置为空就不会过滤
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  #设置为true重定向是会添加host请求头
+  add-host-header: true
