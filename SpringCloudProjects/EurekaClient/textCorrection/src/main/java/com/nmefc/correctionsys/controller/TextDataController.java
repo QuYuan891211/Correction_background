@@ -4,6 +4,7 @@ import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,22 @@ import java.util.List;
 public class TextDataController {
     @Autowired
     private TextDataService textDataService;
+    /**
+     *@Description: 测试方法
+     *@Param:
+     *@Return:
+     *@Author: QuYuan
+     *@Date: 2020/7/21 13:13
+     */
+    //获取配置中心的值
+    @Value("${user.name}")
+    String name = "World";
+
+    @RequestMapping("/getTestName")
+    public String home() {
+        return "Hello " + name;
+    }
+
 
     /**
      * @Description:（6）根据模板id查询当日文本记录

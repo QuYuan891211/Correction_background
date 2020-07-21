@@ -1,0 +1,33 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: admin-client
+  boot:
+    admin:
+      client:
+        # 配置admin-server地址
+        url: http://localhost:5003
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+# 添加开启admin的日志监控
+logging:
+  file: admin-client.log

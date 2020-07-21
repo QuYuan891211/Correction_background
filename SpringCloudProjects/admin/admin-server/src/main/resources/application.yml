@@ -1,0 +1,31 @@
+server:
+  port: 5003
+
+spring:
+  application:
+    name: admin-server
+  boot:
+    admin:
+      ui:
+        title: SpringBootAdmin-Server
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+#    health-check-url-path: /actuator/health
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+
+management:
+  security:
+    enabled: false # spring-boot 1.5.2之后严格执行安全策略，所以需要配置这个为false ,否则很多点监控不到
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS

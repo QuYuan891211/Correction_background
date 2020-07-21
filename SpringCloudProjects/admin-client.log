@@ -1,0 +1,335 @@
+2020-07-21 15:48:29.381  INFO 168676 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 168676 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 15:48:29.385  INFO 168676 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 15:48:30.781  INFO 168676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 15:48:30.790  INFO 168676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:48:30.791  INFO 168676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 15:48:30.865  INFO 168676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:48:30.866  INFO 168676 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1234 ms
+2020-07-21 15:48:31.003  INFO 168676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:48:31.155  INFO 168676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 15:48:31.158  INFO 168676 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 3.022 seconds (JVM running for 4.76)
+2020-07-21 15:51:28.491  INFO 169380 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 169380 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 15:51:28.494  INFO 169380 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 15:51:30.159  INFO 169380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 15:51:30.168  INFO 169380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:51:30.168  INFO 169380 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 15:51:30.261  INFO 169380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:51:30.262  INFO 169380 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1676 ms
+2020-07-21 15:51:30.436  INFO 169380 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:51:30.564  INFO 169380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 15:51:30.567  INFO 169380 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 2.678 seconds (JVM running for 3.807)
+2020-07-21 16:20:03.157  INFO 170752 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 170752 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 16:20:03.160  INFO 170752 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:20:04.455  INFO 170752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:20:04.463  INFO 170752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:20:04.463  INFO 170752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:20:04.550  INFO 170752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:20:04.550  INFO 170752 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1343 ms
+2020-07-21 16:20:04.737  INFO 170752 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 16:20:04.855  INFO 170752 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:20:05.440  INFO 170752 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:20:05.492  INFO 170752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:20:05.915  INFO 170752 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 4.455 seconds (JVM running for 5.8)
+2020-07-21 16:21:46.472  INFO 172580 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 172580 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 16:21:46.478  INFO 172580 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:21:47.543  INFO 172580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:21:47.550  INFO 172580 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:21:47.551  INFO 172580 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:21:47.636  INFO 172580 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:21:47.637  INFO 172580 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1105 ms
+2020-07-21 16:21:47.844  INFO 172580 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 16:21:47.992  INFO 172580 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:21:48.582  INFO 172580 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:21:48.635  INFO 172580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:21:49.146  INFO 172580 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 4.95 seconds (JVM running for 6.338)
+2020-07-21 16:25:47.543  INFO 167816 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 167816 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 16:25:47.547  INFO 167816 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:25:49.534  INFO 167816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:25:49.548  INFO 167816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:25:49.548  INFO 167816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:25:49.783  INFO 167816 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:25:49.783  INFO 167816 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2150 ms
+2020-07-21 16:25:50.596  INFO 167816 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 16:25:51.722  INFO 167816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:25:52.808  INFO 167816 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:25:52.926  INFO 167816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:25:53.631  INFO 167816 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 8.994 seconds (JVM running for 10.502)
+2020-07-21 16:33:11.456  INFO 173356 --- [main] c.n.adminclient.AdminClientApplication   : Starting AdminClientApplication on DESKTOP-PQ62A06 with PID 173356 (E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects\EurekaClient\admin-client\target\classes started by quyua in E:\projects\IDEA\ForcastSpringCloud\CorrectionSys_dev\CorrectionSYS\SpringCloudProjects)
+2020-07-21 16:33:11.459  INFO 173356 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:33:12.466  INFO 173356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:33:12.475  INFO 173356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:33:12.475  INFO 173356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:33:12.563  INFO 173356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:33:12.563  INFO 173356 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1070 ms
+2020-07-21 16:33:12.744  INFO 173356 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 16:33:12.866  INFO 173356 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:33:13.460  INFO 173356 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:33:13.512  INFO 173356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:33:13.927  INFO 173356 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 4.431 seconds (JVM running for 5.629)
+2020-07-21 16:35:09.303  INFO 173420 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:35:10.005  WARN 173420 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 16:35:10.099  INFO 173420 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e12011eb-ce04-33ac-beec-17cd5fdfa731
+2020-07-21 16:35:10.478  INFO 173420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:35:10.489  INFO 173420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:35:10.489  INFO 173420 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:35:10.621  INFO 173420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:35:10.621  INFO 173420 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1303 ms
+2020-07-21 16:35:10.699  WARN 173420 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:35:10.699  INFO 173420 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:35:10.708  INFO 173420 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@184fb68d
+2020-07-21 16:35:11.374  INFO 173420 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 16:35:11.423  WARN 173420 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:35:11.423  INFO 173420 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:35:11.549  INFO 173420 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:35:12.247  WARN 173420 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 16:35:12.287  INFO 173420 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:35:12.322  INFO 173420 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 16:35:12.350  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 16:35:12.853  INFO 173420 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 16:35:12.853  INFO 173420 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 16:35:12.960  INFO 173420 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 16:35:12.961  INFO 173420 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 16:35:13.113  INFO 173420 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 16:35:13.412  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 16:35:13.413  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 16:35:13.549  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 16:35:13.552  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 16:35:13.554  INFO 173420 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 16:35:13.558  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595320513557 with initial instances count: 5
+2020-07-21 16:35:13.559  INFO 173420 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 16:35:13.560  INFO 173420 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595320513560, current=UP, previous=STARTING]
+2020-07-21 16:35:13.562  INFO 173420 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 16:35:13.601  INFO 173420 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 16:35:13.609  INFO 173420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:35:13.610  INFO 173420 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 16:35:14.035  INFO 173420 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 7.282 seconds (JVM running for 8.871)
+2020-07-21 16:40:13.417  INFO 173420 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 16:42:31.043  INFO 168604 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:42:32.143  WARN 168604 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 16:42:32.346  INFO 168604 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7b0c295c-8a80-3dea-8891-4422dee4ad65
+2020-07-21 16:42:32.886  INFO 168604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:42:32.900  INFO 168604 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:42:32.900  INFO 168604 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:42:33.101  INFO 168604 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:42:33.102  INFO 168604 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2035 ms
+2020-07-21 16:42:33.220  WARN 168604 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:42:33.220  INFO 168604 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:42:33.236  INFO 168604 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5c73f672
+2020-07-21 16:42:34.577  WARN 168604 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:42:34.577  INFO 168604 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:42:34.855  INFO 168604 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:42:36.184  WARN 168604 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 16:42:36.259  INFO 168604 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:42:36.331  INFO 168604 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 16:42:36.388  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 16:42:37.140  INFO 168604 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 16:42:37.141  INFO 168604 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 16:42:37.300  INFO 168604 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 16:42:37.300  INFO 168604 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 16:42:37.545  INFO 168604 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 16:42:37.875  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 16:42:37.876  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 16:42:38.064  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 16:42:38.067  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 16:42:38.070  INFO 168604 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 16:42:38.074  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595320958073 with initial instances count: 6
+2020-07-21 16:42:38.075  INFO 168604 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 16:42:38.075  INFO 168604 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595320958075, current=UP, previous=STARTING]
+2020-07-21 16:42:38.077  INFO 168604 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 16:42:38.136  INFO 168604 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 16:42:38.143  INFO 168604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:42:38.143  INFO 168604 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 16:42:38.610  INFO 168604 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 11.654 seconds (JVM running for 13.673)
+2020-07-21 16:45:13.730  INFO 148056 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 16:45:14.493  WARN 148056 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 16:45:14.599  INFO 148056 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7b0c295c-8a80-3dea-8891-4422dee4ad65
+2020-07-21 16:45:14.899  INFO 148056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 16:45:14.907  INFO 148056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:45:14.907  INFO 148056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 16:45:15.034  INFO 148056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:45:15.034  INFO 148056 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1288 ms
+2020-07-21 16:45:15.109  WARN 148056 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:45:15.109  INFO 148056 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:45:15.118  INFO 148056 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@65b66b08
+2020-07-21 16:45:15.845  WARN 148056 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 16:45:15.845  INFO 148056 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 16:45:15.977  INFO 148056 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:45:16.721  WARN 148056 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 16:45:16.757  INFO 148056 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2020-07-21 16:45:16.793  INFO 148056 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 16:45:16.821  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 16:45:17.295  INFO 148056 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 16:45:17.295  INFO 148056 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 16:45:17.425  INFO 148056 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 16:45:17.425  INFO 148056 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 16:45:17.583  INFO 148056 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 16:45:17.872  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 16:45:17.873  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 16:45:18.008  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 16:45:18.011  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 16:45:18.012  INFO 148056 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 16:45:18.015  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595321118014 with initial instances count: 6
+2020-07-21 16:45:18.016  INFO 148056 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 16:45:18.017  INFO 148056 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595321118017, current=UP, previous=STARTING]
+2020-07-21 16:45:18.019  INFO 148056 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 16:45:18.061  INFO 148056 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 16:45:18.064  INFO 148056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 16:45:18.065  INFO 148056 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 16:45:18.517  INFO 148056 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 7.562 seconds (JVM running for 9.234)
+2020-07-21 16:50:17.876  INFO 148056 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 16:55:17.878  INFO 148056 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:00:11.619  INFO 171784 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 17:00:12.804  WARN 171784 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 17:00:13.095  INFO 171784 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7b0c295c-8a80-3dea-8891-4422dee4ad65
+2020-07-21 17:00:13.745  INFO 171784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 17:00:13.764  INFO 171784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 17:00:13.765  INFO 171784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 17:00:14.074  INFO 171784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 17:00:14.075  INFO 171784 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2427 ms
+2020-07-21 17:00:14.247  WARN 171784 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:00:14.247  INFO 171784 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:00:14.267  INFO 171784 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@14d8444b
+2020-07-21 17:00:16.066  WARN 171784 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:00:16.067  INFO 171784 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:00:16.486  INFO 171784 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 17:00:17.469  WARN 171784 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 17:00:17.524  INFO 171784 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2020-07-21 17:00:17.574  INFO 171784 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 17:00:17.615  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 17:00:18.184  INFO 171784 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 17:00:18.185  INFO 171784 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 17:00:18.324  INFO 171784 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 17:00:18.324  INFO 171784 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 17:00:18.548  INFO 171784 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:00:19.059  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 17:00:19.060  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 17:00:19.237  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 17:00:19.240  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 17:00:19.242  INFO 171784 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 17:00:19.247  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595322019246 with initial instances count: 2
+2020-07-21 17:00:19.248  INFO 171784 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 17:00:19.249  INFO 171784 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595322019249, current=UP, previous=STARTING]
+2020-07-21 17:00:19.252  INFO 171784 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 17:00:19.300  INFO 171784 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 17:00:19.321  INFO 171784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 17:00:19.322  INFO 171784 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 17:00:19.945  INFO 171784 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 12.479 seconds (JVM running for 15.34)
+2020-07-21 17:05:19.062  INFO 171784 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:10:19.064  INFO 171784 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:15:19.066  INFO 171784 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:20:19.069  INFO 171784 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:25:17.220  INFO 169612 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 17:25:17.956  WARN 169612 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 17:25:18.055  INFO 169612 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9fa62c34-0263-3c55-a9a4-1f35fb1b949a
+2020-07-21 17:25:18.360  INFO 169612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 17:25:18.367  INFO 169612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 17:25:18.367  INFO 169612 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 17:25:18.493  INFO 169612 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 17:25:18.493  INFO 169612 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1256 ms
+2020-07-21 17:25:18.569  WARN 169612 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:25:18.569  INFO 169612 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:25:18.579  INFO 169612 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@151ef57f
+2020-07-21 17:25:19.300  INFO 169612 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 17:25:19.340  WARN 169612 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:25:19.342  INFO 169612 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:25:19.494  INFO 169612 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 17:25:20.443  INFO 169612 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2020-07-21 17:25:20.944  WARN 169612 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 17:25:20.976  INFO 169612 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2020-07-21 17:25:21.013  INFO 169612 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 17:25:21.040  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 17:25:21.088  INFO 169612 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 17:25:21.089  INFO 169612 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 17:25:21.196  INFO 169612 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 17:25:21.196  INFO 169612 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 17:25:21.369  INFO 169612 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:25:21.664  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 17:25:21.665  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 17:25:21.823  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 17:25:21.828  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 17:25:21.831  INFO 169612 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 17:25:21.837  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595323521836 with initial instances count: 4
+2020-07-21 17:25:21.839  INFO 169612 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 17:25:21.840  INFO 169612 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595323521840, current=UP, previous=STARTING]
+2020-07-21 17:25:21.842  INFO 169612 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 17:25:21.893  INFO 169612 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 17:25:21.911  INFO 169612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 17:25:21.913  INFO 169612 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 17:25:22.534  INFO 169612 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 7.79 seconds (JVM running for 9.257)
+2020-07-21 17:25:23.584  INFO 169612 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 2f97b54eedc2
+2020-07-21 17:25:23.658  INFO 169612 --- [http-nio-8002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 17:25:23.658  INFO 169612 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 17:25:23.665  INFO 169612 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-07-21 17:28:10.989  INFO 173120 --- [main] c.n.adminclient.AdminClientApplication   : No active profile set, falling back to default profiles: default
+2020-07-21 17:28:11.694  WARN 173120 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-07-21 17:28:11.795  INFO 173120 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9fa62c34-0263-3c55-a9a4-1f35fb1b949a
+2020-07-21 17:28:12.115  INFO 173120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8002 (http)
+2020-07-21 17:28:12.127  INFO 173120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 17:28:12.127  INFO 173120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-21 17:28:12.257  INFO 173120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 17:28:12.258  INFO 173120 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1255 ms
+2020-07-21 17:28:12.343  WARN 173120 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:28:12.344  INFO 173120 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:28:12.353  INFO 173120 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@3672276e
+2020-07-21 17:28:13.050  INFO 173120 --- [main] o.s.b.a.e.web.ServletEndpointRegistrar   : Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+2020-07-21 17:28:13.080  WARN 173120 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2020-07-21 17:28:13.080  INFO 173120 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-21 17:28:13.204  INFO 173120 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 17:28:13.953  INFO 173120 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2020-07-21 17:28:14.443  WARN 173120 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-07-21 17:28:14.476  INFO 173120 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2020-07-21 17:28:14.514  INFO 173120 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2020-07-21 17:28:14.541  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2020-07-21 17:28:14.590  INFO 173120 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2020-07-21 17:28:14.591  INFO 173120 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2020-07-21 17:28:14.696  INFO 173120 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2020-07-21 17:28:14.696  INFO 173120 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2020-07-21 17:28:14.850  INFO 173120 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2020-07-21 17:28:15.140  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2020-07-21 17:28:15.140  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2020-07-21 17:28:15.140  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2020-07-21 17:28:15.141  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2020-07-21 17:28:15.141  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2020-07-21 17:28:15.141  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2020-07-21 17:28:15.141  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2020-07-21 17:28:15.267  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2020-07-21 17:28:15.271  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2020-07-21 17:28:15.273  INFO 173120 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-07-21 17:28:15.277  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1595323695276 with initial instances count: 4
+2020-07-21 17:28:15.278  INFO 173120 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ADMIN-CLIENT with eureka with status UP
+2020-07-21 17:28:15.278  INFO 173120 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1595323695278, current=UP, previous=STARTING]
+2020-07-21 17:28:15.281  INFO 173120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002: registering service...
+2020-07-21 17:28:15.325  INFO 173120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ADMIN-CLIENT/DESKTOP-PQ62A06:admin-client:8002 - registration status: 204
+2020-07-21 17:28:15.335  INFO 173120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8002 (http) with context path ''
+2020-07-21 17:28:15.336  INFO 173120 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8002
+2020-07-21 17:28:15.602  INFO 173120 --- [http-nio-8002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 17:28:15.603  INFO 173120 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 17:28:15.610  INFO 173120 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-07-21 17:28:15.798  INFO 173120 --- [main] c.n.adminclient.AdminClientApplication   : Started AdminClientApplication in 7.451 seconds (JVM running for 8.95)
+2020-07-21 17:28:15.895  INFO 173120 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as 2f97b54eedc2
+2020-07-21 17:33:15.143  INFO 173120 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

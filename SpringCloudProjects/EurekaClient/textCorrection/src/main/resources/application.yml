@@ -1,0 +1,42 @@
+#指定端口号
+server:
+  port: 8001
+log4j:
+  debug: true
+  rootLogger: debug, stdout
+mybatis:
+#  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.nmefc.correctionsys.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+spring:
+  application:
+  #指定服务名称
+    name: text-correction
+  boot:
+    admin:
+      client:
+        # 配置admin-server地址
+        url: http://localhost:5003
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.url}:3306/text_correction?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&characterEncoding=utf-8 #从SVN配置文件中获取
+    username: ${mysql.username} #从SVN配置文件中获取
+    password: ${mysql.password} #从SVN配置文件中获取
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+# 添加开启admin的日志监控
+logging:
+  file: text-correction.log
