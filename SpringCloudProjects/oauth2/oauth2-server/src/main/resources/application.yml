@@ -1,0 +1,6 @@
+server:
+  port: 5004
+
+spring:
+  application:
+    name: oauth2-server

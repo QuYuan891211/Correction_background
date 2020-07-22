@@ -7,9 +7,9 @@ spring:
     config:
       server:
         svn:
-          uri:  #svn地址
-          username: 
-          password: 
+          uri: svn://zlyfs.synology.me/CorrectionSYS/configData/ #svn地址
+          username:  #svn用户名
+          password:  #svn密码
         default-label: trunk   #trunk，配置文件的目录
   profiles:
     active: subversion  #表示这是采用的svn进行的spring cloud的配置
