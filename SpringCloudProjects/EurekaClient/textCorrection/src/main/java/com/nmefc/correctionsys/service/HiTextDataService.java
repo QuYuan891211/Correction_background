@@ -1,9 +1,5 @@
 package com.nmefc.correctionsys.service;
 
-import com.nmefc.correctionsys.entity.HiTextData;
-import com.nmefc.correctionsys.entity.HiTextDataExample;
-import com.nmefc.correctionsys.entity.TextInfo;
-
 import java.util.Date;
 import java.util.List;
 

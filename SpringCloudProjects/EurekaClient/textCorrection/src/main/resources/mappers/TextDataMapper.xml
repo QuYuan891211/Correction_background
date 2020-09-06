@@ -5,15 +5,12 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="tid" property="tid" jdbcType="INTEGER" />
     <result column="t_version" property="tVersion" jdbcType="INTEGER" />
-    <result column="date" property="date" jdbcType="DATE" />
+    <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="isok" property="isok" jdbcType="TINYINT" />
     <result column="forecaster" property="forecaster" jdbcType="VARCHAR" />
     <result column="checker" property="checker" jdbcType="VARCHAR" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.nmefc.correctionsys.entity.TextData" extends="BaseResultMap" >
-    <result column="t_data" property="tData" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -76,25 +73,6 @@
   <sql id="Base_Column_List" >
     id, tid, t_version, date, gmt_create, isok, forecaster, checker, gmt_modified
   </sql>
-  <sql id="Blob_Column_List" >
-    t_data
-  </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.nmefc.correctionsys.entity.TextDataExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from text_data
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.nmefc.correctionsys.entity.TextDataExample" >
     select
     <if test="distinct" >
@@ -109,11 +87,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from text_data
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -130,12 +106,12 @@
   <insert id="insert" parameterType="com.nmefc.correctionsys.entity.TextData" >
     insert into text_data (id, tid, t_version, 
       date, gmt_create, isok, 
-      forecaster, checker, gmt_modified, 
-      t_data)
+      forecaster, checker, gmt_modified
+      )
     values (#{id,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{tVersion,jdbcType=INTEGER}, 
-      #{date,jdbcType=DATE}, #{gmtCreate,jdbcType=TIMESTAMP}, #{isok,jdbcType=TINYINT}, 
-      #{forecaster,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{tData,jdbcType=LONGVARCHAR})
+      #{date,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP}, #{isok,jdbcType=TINYINT}, 
+      #{forecaster,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.nmefc.correctionsys.entity.TextData" >
     insert into text_data
@@ -167,9 +143,6 @@
       <if test="gmtModified != null" >
         gmt_modified,
       </if>
-      <if test="tData != null" >
-        t_data,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -182,7 +155,7 @@
         #{tVersion,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
-        #{date,jdbcType=DATE},
+        #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="gmtCreate != null" >
         #{gmtCreate,jdbcType=TIMESTAMP},
@@ -198,9 +171,6 @@
       </if>
       <if test="gmtModified != null" >
         #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="tData != null" >
-        #{tData,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -223,7 +193,7 @@
         t_version = #{record.tVersion,jdbcType=INTEGER},
       </if>
       <if test="record.date != null" >
-        date = #{record.date,jdbcType=DATE},
+        date = #{record.date,jdbcType=TIMESTAMP},
       </if>
       <if test="record.gmtCreate != null" >
         gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
@@ -240,26 +210,7 @@
       <if test="record.gmtModified != null" >
         gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.tData != null" >
-        t_data = #{record.tData,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update text_data
-    set id = #{record.id,jdbcType=INTEGER},
-      tid = #{record.tid,jdbcType=INTEGER},
-      t_version = #{record.tVersion,jdbcType=INTEGER},
-      date = #{record.date,jdbcType=DATE},
-      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
-      isok = #{record.isok,jdbcType=TINYINT},
-      forecaster = #{record.forecaster,jdbcType=VARCHAR},
-      checker = #{record.checker,jdbcType=VARCHAR},
-      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      t_data = #{record.tData,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -269,7 +220,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       tid = #{record.tid,jdbcType=INTEGER},
       t_version = #{record.tVersion,jdbcType=INTEGER},
-      date = #{record.date,jdbcType=DATE},
+      date = #{record.date,jdbcType=TIMESTAMP},
       gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       isok = #{record.isok,jdbcType=TINYINT},
       forecaster = #{record.forecaster,jdbcType=VARCHAR},
@@ -289,7 +240,7 @@
         t_version = #{tVersion,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
-        date = #{date,jdbcType=DATE},
+        date = #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="gmtCreate != null" >
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
@@ -306,30 +257,14 @@
       <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="tData != null" >
-        t_data = #{tData,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nmefc.correctionsys.entity.TextData" >
-    update text_data
-    set tid = #{tid,jdbcType=INTEGER},
-      t_version = #{tVersion,jdbcType=INTEGER},
-      date = #{date,jdbcType=DATE},
-      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      isok = #{isok,jdbcType=TINYINT},
-      forecaster = #{forecaster,jdbcType=VARCHAR},
-      checker = #{checker,jdbcType=VARCHAR},
-      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      t_data = #{tData,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.nmefc.correctionsys.entity.TextData" >
     update text_data
     set tid = #{tid,jdbcType=INTEGER},
       t_version = #{tVersion,jdbcType=INTEGER},
-      date = #{date,jdbcType=DATE},
+      date = #{date,jdbcType=TIMESTAMP},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       isok = #{isok,jdbcType=TINYINT},
       forecaster = #{forecaster,jdbcType=VARCHAR},

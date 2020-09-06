@@ -255,12 +255,4 @@
     where tid = #{tid,jdbcType=INTEGER}
       and t_version = #{tVersion,jdbcType=INTEGER}
   </update>
-  <!--                        新增                                -->
-  <!--1新增软删-->
-
-  <update id="softDeleteByTid" parameterType="com.nmefc.correctionsys.entity.TextInfo" >
-    UPDATE text_info set
-    is_delete = 1
-    WHERE tid = #{tid,jdbcType=INTEGER}
-  </update>
 </mapper>

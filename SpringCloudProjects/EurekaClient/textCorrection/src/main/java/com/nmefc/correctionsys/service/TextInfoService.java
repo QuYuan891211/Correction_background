@@ -1,9 +1,5 @@
 package com.nmefc.correctionsys.service;
 
-import com.nmefc.correctionsys.entity.TextInfo;
-import com.nmefc.correctionsys.entity.TextInfoExample;
-import com.nmefc.correctionsys.entity.TextInfoKey;
-
 import java.util.List;
 
 public interface TextInfoService extends BaseService<TextInfo,TextInfoKey,TextInfoExample> {

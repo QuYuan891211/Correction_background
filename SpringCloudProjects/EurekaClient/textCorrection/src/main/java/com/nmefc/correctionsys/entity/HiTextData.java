@@ -2,7 +2,7 @@ package com.nmefc.correctionsys.entity;
 
 import java.util.Date;
 
-public class HiTextData{
+public class HiTextData {
     private Integer id;
 
     private Integer tid;
@@ -13,15 +13,13 @@ public class HiTextData{
 
     private Date gmtCreate;
 
-    private Boolean isok;
+    private Byte isok;
 
     private String forecaster;
 
     private String checker;
 
     private Date gmtModified;
-
-    private String tData;
 
     public Integer getId() {
         return id;
@@ -63,11 +61,11 @@ public class HiTextData{
         this.gmtCreate = gmtCreate;
     }
 
-    public Boolean getIsok() {
+    public Byte getIsok() {
         return isok;
     }
 
-    public void setIsok(Boolean isok) {
+    public void setIsok(Byte isok) {
         this.isok = isok;
     }
 
@@ -93,13 +91,5 @@ public class HiTextData{
 
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
-    }
-
-    public String gettData() {
-        return tData;
-    }
-
-    public void settData(String tData) {
-        this.tData = tData == null ? null : tData.trim();
     }
 }

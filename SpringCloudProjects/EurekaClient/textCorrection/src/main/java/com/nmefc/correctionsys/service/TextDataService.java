@@ -1,9 +1,5 @@
 package com.nmefc.correctionsys.service;
 
-import com.nmefc.correctionsys.entity.TextData;
-import com.nmefc.correctionsys.entity.TextDataExample;
-import com.nmefc.correctionsys.entity.TextInfo;
-
 import java.util.List;
 
 public interface TextDataService extends BaseService<TextData,Integer,TextDataExample>{

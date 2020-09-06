@@ -1,7 +1,5 @@
 package com.nmefc.correctionsys.controller;
 
-import com.nmefc.correctionsys.entity.TextData;
-import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

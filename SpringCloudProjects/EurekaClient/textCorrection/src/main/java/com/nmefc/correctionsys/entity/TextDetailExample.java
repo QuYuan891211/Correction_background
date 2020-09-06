@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TextInfoExample {
+public class TextDetailExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TextInfoExample() {
+    public TextDetailExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -105,183 +105,63 @@ public class TextInfoExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andTidIsNull() {
-            addCriterion("tid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTidIsNotNull() {
-            addCriterion("tid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTidEqualTo(Integer value) {
-            addCriterion("tid =", value, "tid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidNotEqualTo(Integer value) {
-            addCriterion("tid <>", value, "tid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidGreaterThan(Integer value) {
-            addCriterion("tid >", value, "tid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("tid >=", value, "tid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidLessThan(Integer value) {
-            addCriterion("tid <", value, "tid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidLessThanOrEqualTo(Integer value) {
-            addCriterion("tid <=", value, "tid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidIn(List<Integer> values) {
-            addCriterion("tid in", values, "tid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidNotIn(List<Integer> values) {
-            addCriterion("tid not in", values, "tid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidBetween(Integer value1, Integer value2) {
-            addCriterion("tid between", value1, value2, "tid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTidNotBetween(Integer value1, Integer value2) {
-            addCriterion("tid not between", value1, value2, "tid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionIsNull() {
-            addCriterion("t_version is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionIsNotNull() {
-            addCriterion("t_version is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionEqualTo(Integer value) {
-            addCriterion("t_version =", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionNotEqualTo(Integer value) {
-            addCriterion("t_version <>", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionGreaterThan(Integer value) {
-            addCriterion("t_version >", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionGreaterThanOrEqualTo(Integer value) {
-            addCriterion("t_version >=", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionLessThan(Integer value) {
-            addCriterion("t_version <", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionLessThanOrEqualTo(Integer value) {
-            addCriterion("t_version <=", value, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionIn(List<Integer> values) {
-            addCriterion("t_version in", values, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionNotIn(List<Integer> values) {
-            addCriterion("t_version not in", values, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionBetween(Integer value1, Integer value2) {
-            addCriterion("t_version between", value1, value2, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andTVersionNotBetween(Integer value1, Integer value2) {
-            addCriterion("t_version not between", value1, value2, "tVersion");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIsNull() {
-            addCriterion("gmt_modified is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIsNotNull() {
-            addCriterion("gmt_modified is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedEqualTo(Date value) {
-            addCriterion("gmt_modified =", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotEqualTo(Date value) {
-            addCriterion("gmt_modified <>", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedGreaterThan(Date value) {
-            addCriterion("gmt_modified >", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("gmt_modified >=", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedLessThan(Date value) {
-            addCriterion("gmt_modified <", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("gmt_modified <=", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIn(List<Date> values) {
-            addCriterion("gmt_modified in", values, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotIn(List<Date> values) {
-            addCriterion("gmt_modified not in", values, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("gmt_modified between", value1, value2, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -345,6 +225,66 @@ public class TextInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
+            return (Criteria) this;
+        }
+
         public Criteria andIsDeleteIsNull() {
             addCriterion("is_delete is null");
             return (Criteria) this;
@@ -405,203 +345,123 @@ public class TextInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTNameIsNull() {
-            addCriterion("t_name is null");
+        public Criteria andTextDataIdIsNull() {
+            addCriterion("text_data_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTNameIsNotNull() {
-            addCriterion("t_name is not null");
+        public Criteria andTextDataIdIsNotNull() {
+            addCriterion("text_data_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTNameEqualTo(String value) {
-            addCriterion("t_name =", value, "tName");
+        public Criteria andTextDataIdEqualTo(Integer value) {
+            addCriterion("text_data_id =", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameNotEqualTo(String value) {
-            addCriterion("t_name <>", value, "tName");
+        public Criteria andTextDataIdNotEqualTo(Integer value) {
+            addCriterion("text_data_id <>", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameGreaterThan(String value) {
-            addCriterion("t_name >", value, "tName");
+        public Criteria andTextDataIdGreaterThan(Integer value) {
+            addCriterion("text_data_id >", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameGreaterThanOrEqualTo(String value) {
-            addCriterion("t_name >=", value, "tName");
+        public Criteria andTextDataIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("text_data_id >=", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameLessThan(String value) {
-            addCriterion("t_name <", value, "tName");
+        public Criteria andTextDataIdLessThan(Integer value) {
+            addCriterion("text_data_id <", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameLessThanOrEqualTo(String value) {
-            addCriterion("t_name <=", value, "tName");
+        public Criteria andTextDataIdLessThanOrEqualTo(Integer value) {
+            addCriterion("text_data_id <=", value, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameLike(String value) {
-            addCriterion("t_name like", value, "tName");
+        public Criteria andTextDataIdIn(List<Integer> values) {
+            addCriterion("text_data_id in", values, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameNotLike(String value) {
-            addCriterion("t_name not like", value, "tName");
+        public Criteria andTextDataIdNotIn(List<Integer> values) {
+            addCriterion("text_data_id not in", values, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameIn(List<String> values) {
-            addCriterion("t_name in", values, "tName");
+        public Criteria andTextDataIdBetween(Integer value1, Integer value2) {
+            addCriterion("text_data_id between", value1, value2, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameNotIn(List<String> values) {
-            addCriterion("t_name not in", values, "tName");
+        public Criteria andTextDataIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("text_data_id not between", value1, value2, "textDataId");
             return (Criteria) this;
         }
 
-        public Criteria andTNameBetween(String value1, String value2) {
-            addCriterion("t_name between", value1, value2, "tName");
+        public Criteria andIntervalIdIsNull() {
+            addCriterion("interval_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTNameNotBetween(String value1, String value2) {
-            addCriterion("t_name not between", value1, value2, "tName");
+        public Criteria andIntervalIdIsNotNull() {
+            addCriterion("interval_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationIsNull() {
-            addCriterion("t_abbreviation is null");
+        public Criteria andIntervalIdEqualTo(Integer value) {
+            addCriterion("interval_id =", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationIsNotNull() {
-            addCriterion("t_abbreviation is not null");
+        public Criteria andIntervalIdNotEqualTo(Integer value) {
+            addCriterion("interval_id <>", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationEqualTo(String value) {
-            addCriterion("t_abbreviation =", value, "tAbbreviation");
+        public Criteria andIntervalIdGreaterThan(Integer value) {
+            addCriterion("interval_id >", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationNotEqualTo(String value) {
-            addCriterion("t_abbreviation <>", value, "tAbbreviation");
+        public Criteria andIntervalIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("interval_id >=", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationGreaterThan(String value) {
-            addCriterion("t_abbreviation >", value, "tAbbreviation");
+        public Criteria andIntervalIdLessThan(Integer value) {
+            addCriterion("interval_id <", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationGreaterThanOrEqualTo(String value) {
-            addCriterion("t_abbreviation >=", value, "tAbbreviation");
+        public Criteria andIntervalIdLessThanOrEqualTo(Integer value) {
+            addCriterion("interval_id <=", value, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationLessThan(String value) {
-            addCriterion("t_abbreviation <", value, "tAbbreviation");
+        public Criteria andIntervalIdIn(List<Integer> values) {
+            addCriterion("interval_id in", values, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationLessThanOrEqualTo(String value) {
-            addCriterion("t_abbreviation <=", value, "tAbbreviation");
+        public Criteria andIntervalIdNotIn(List<Integer> values) {
+            addCriterion("interval_id not in", values, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationLike(String value) {
-            addCriterion("t_abbreviation like", value, "tAbbreviation");
+        public Criteria andIntervalIdBetween(Integer value1, Integer value2) {
+            addCriterion("interval_id between", value1, value2, "intervalId");
             return (Criteria) this;
         }
 
-        public Criteria andTAbbreviationNotLike(String value) {
-            addCriterion("t_abbreviation not like", value, "tAbbreviation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTAbbreviationIn(List<String> values) {
-            addCriterion("t_abbreviation in", values, "tAbbreviation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTAbbreviationNotIn(List<String> values) {
-            addCriterion("t_abbreviation not in", values, "tAbbreviation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTAbbreviationBetween(String value1, String value2) {
-            addCriterion("t_abbreviation between", value1, value2, "tAbbreviation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTAbbreviationNotBetween(String value1, String value2) {
-            addCriterion("t_abbreviation not between", value1, value2, "tAbbreviation");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentIsNull() {
-            addCriterion("department is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentIsNotNull() {
-            addCriterion("department is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentEqualTo(Integer value) {
-            addCriterion("department =", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentNotEqualTo(Integer value) {
-            addCriterion("department <>", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentGreaterThan(Integer value) {
-            addCriterion("department >", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentGreaterThanOrEqualTo(Integer value) {
-            addCriterion("department >=", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentLessThan(Integer value) {
-            addCriterion("department <", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentLessThanOrEqualTo(Integer value) {
-            addCriterion("department <=", value, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentIn(List<Integer> values) {
-            addCriterion("department in", values, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentNotIn(List<Integer> values) {
-            addCriterion("department not in", values, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentBetween(Integer value1, Integer value2) {
-            addCriterion("department between", value1, value2, "department");
-            return (Criteria) this;
-        }
-
-        public Criteria andDepartmentNotBetween(Integer value1, Integer value2) {
-            addCriterion("department not between", value1, value2, "department");
+        public Criteria andIntervalIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("interval_id not between", value1, value2, "intervalId");
             return (Criteria) this;
         }
     }
