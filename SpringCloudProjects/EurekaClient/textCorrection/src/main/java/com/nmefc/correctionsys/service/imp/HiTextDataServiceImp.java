@@ -1,5 +1,7 @@
 package com.nmefc.correctionsys.service.imp;
 
+import com.nmefc.correctionsys.dao.HiTextDataMapper;
+import com.nmefc.correctionsys.entity.*;
 import com.nmefc.correctionsys.service.HiTextDataService;
 import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextInfoService;

@@ -9,7 +9,7 @@ public class TextDetail {
 
     private Date gmtModified;
 
-    private Byte isDelete;
+    private Boolean isDelete;
 
     private Integer textDataId;
 
@@ -41,11 +41,11 @@ public class TextDetail {
         this.gmtModified = gmtModified;
     }
 
-    public Byte getIsDelete() {
+    public Boolean getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Byte isDelete) {
+    public void setIsDelete(Boolean isDelete) {
         this.isDelete = isDelete;
     }
 

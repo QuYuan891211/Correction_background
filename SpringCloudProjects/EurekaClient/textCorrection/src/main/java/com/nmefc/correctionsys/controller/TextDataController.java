@@ -1,5 +1,7 @@
 package com.nmefc.correctionsys.controller;
 
+import com.nmefc.correctionsys.entity.TextData;
+import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -87,7 +89,7 @@ public class TextDataController {
         if (textData == null || textData.getGmtCreate() == null ||textData.getGmtModified() == null|| textData.gettVersion() == null || textData.getTid() == null || textData.getId() == 0 || textData.getIsok() == null) {
             return "传入参数有误";
         }
-        if (textData.getIsok() == false) {
+        if (textData.getIsok() == 0) {
             return "预报员未确认完成";
         }
         if (0 == textDataService.lastCheck(textData)) {

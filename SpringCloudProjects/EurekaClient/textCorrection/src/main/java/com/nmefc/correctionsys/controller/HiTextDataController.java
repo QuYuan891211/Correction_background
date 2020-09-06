@@ -1,5 +1,7 @@
 package com.nmefc.correctionsys.controller;
 
+import com.nmefc.correctionsys.entity.HiTextData;
+import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.HiTextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

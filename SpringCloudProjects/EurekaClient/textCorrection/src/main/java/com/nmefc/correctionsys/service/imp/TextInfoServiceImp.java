@@ -1,5 +1,9 @@
 package com.nmefc.correctionsys.service.imp;
 
+import com.nmefc.correctionsys.dao.TextInfoMapper;
+import com.nmefc.correctionsys.entity.TextInfo;
+import com.nmefc.correctionsys.entity.TextInfoExample;
+import com.nmefc.correctionsys.entity.TextInfoKey;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

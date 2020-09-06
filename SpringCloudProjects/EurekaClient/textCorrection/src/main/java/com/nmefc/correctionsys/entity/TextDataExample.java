@@ -415,52 +415,52 @@ public class TextDataExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsokEqualTo(Byte value) {
+        public Criteria andIsokEqualTo(Boolean value) {
             addCriterion("isok =", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokNotEqualTo(Byte value) {
+        public Criteria andIsokNotEqualTo(Boolean value) {
             addCriterion("isok <>", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokGreaterThan(Byte value) {
+        public Criteria andIsokGreaterThan(Boolean value) {
             addCriterion("isok >", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsokGreaterThanOrEqualTo(Boolean value) {
             addCriterion("isok >=", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokLessThan(Byte value) {
+        public Criteria andIsokLessThan(Boolean value) {
             addCriterion("isok <", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokLessThanOrEqualTo(Byte value) {
+        public Criteria andIsokLessThanOrEqualTo(Boolean value) {
             addCriterion("isok <=", value, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokIn(List<Byte> values) {
+        public Criteria andIsokIn(List<Boolean> values) {
             addCriterion("isok in", values, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokNotIn(List<Byte> values) {
+        public Criteria andIsokNotIn(List<Boolean> values) {
             addCriterion("isok not in", values, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokBetween(Byte value1, Byte value2) {
+        public Criteria andIsokBetween(Boolean value1, Boolean value2) {
             addCriterion("isok between", value1, value2, "isok");
             return (Criteria) this;
         }
 
-        public Criteria andIsokNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsokNotBetween(Boolean value1, Boolean value2) {
             addCriterion("isok not between", value1, value2, "isok");
             return (Criteria) this;
         }

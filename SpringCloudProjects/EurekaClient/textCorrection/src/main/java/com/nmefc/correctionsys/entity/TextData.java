@@ -13,7 +13,7 @@ public class TextData {
 
     private Date gmtCreate;
 
-    private Byte isok;
+    private Boolean isok;
 
     private String forecaster;
 
@@ -61,11 +61,11 @@ public class TextData {
         this.gmtCreate = gmtCreate;
     }
 
-    public Byte getIsok() {
+    public Boolean getIsok() {
         return isok;
     }
 
-    public void setIsok(Byte isok) {
+    public void setIsok(Boolean isok) {
         this.isok = isok;
     }
 
