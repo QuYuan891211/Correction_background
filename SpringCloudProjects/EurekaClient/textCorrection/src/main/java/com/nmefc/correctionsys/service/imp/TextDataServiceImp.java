@@ -1,11 +1,9 @@
 package com.nmefc.correctionsys.service.imp;
 
 import com.nmefc.correctionsys.dao.TextDataMapper;
-import com.nmefc.correctionsys.entity.TextData;
-import com.nmefc.correctionsys.entity.TextDataExample;
-import com.nmefc.correctionsys.entity.TextInfo;
-import com.nmefc.correctionsys.entity.TextInfoKey;
+import com.nmefc.correctionsys.entity.*;
 import com.nmefc.correctionsys.service.TextDataService;
+import com.nmefc.correctionsys.service.TextDetailService;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +24,10 @@ import java.util.List;
 public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextDataExample> implements TextDataService{
     @Autowired
     private TextDataMapper textDataMapper;
-//    @Autowired
-//   private TextInfoMapper textInfoMapper;
     @Autowired
     private TextInfoService textInfoService;
+    @Autowired
+    private TextDetailService textDetailService;
     @Override
     boolean checkParameters(TextData textData) {
         return false;
@@ -51,7 +49,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         textDataExample.createCriteria().andTidEqualTo(tid);
         textDataExample.setOrderByClause("t_version DESC");
         //注意这里如果要返回数据库TEXT类型，必须要用WithBLOBs方法
-        textDataList = textDataMapper.selectByExampleWithBLOBs(textDataExample);
+        textDataList = textDataMapper.selectByExample(textDataExample);
         switch (textDataList.size()){
 //            若记录数为0，返回空；
             case 0:
@@ -87,7 +85,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         TextDataExample textDataExample = new TextDataExample();
         textDataExample.setOrderByClause("t_version DESC");
         try{
-            textDataList = textDataMapper.selectByExampleWithBLOBs(textDataExample);
+            textDataList = textDataMapper.selectByExample(textDataExample);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }finally {
@@ -112,7 +110,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         textData.setGmtModified(new Date());
 
         try{
-            return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+            return textDataMapper.updateByPrimaryKey(textData);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -135,7 +133,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
             textData.setChecker(null);
             textData.setGmtModified(new Date());
             try{
-                return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+                return textDataMapper.updateByPrimaryKey(textData);
             }catch (Exception ex){
                 System.out.println(ex.getMessage());
             }
@@ -217,7 +215,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
      *@Date: 2020/5/8 11:34
      */
     @Transactional
-    public Integer update(TextData textData){
+    public Integer update(TextData textData, List<TextDetail> textDetailList){
         textData.setIsok(false);
         textData.setGmtModified(new Date());
         try{
@@ -229,15 +227,24 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
            textData.setForecaster(textDataOld.getForecaster());
            textData.setTid(textDataOld.getTid());
            textData.settVersion(textData.gettVersion());
+           //处理预报文本
+
         }catch (Exception e){
             System.out.println(e.getMessage());
+            return 0;
         }
         try{
-            return textDataMapper.updateByPrimaryKeyWithBLOBs(textData);
+             textDetailList.forEach(item->{
+                    item.setGmtModified(new Date());
+                    textDetailService.updateTextDetail(item);
+             }
+             );
+             textDataMapper.updateByPrimaryKey(textData);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
+            return 0;
         }
-        return 0;
+        return 1;
     }
     /**
      *@Description:（10）预报员确认完成: 查询text_data库表中对应记录，
@@ -256,7 +263,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         data.setForecaster("默认预报员");
         data.setGmtModified(new Date());
         data.setIsok(true);
-        return textDataMapper.updateByPrimaryKeyWithBLOBs(data);
+        return textDataMapper.updateByPrimaryKey(data);
     }
     /**
      *@Description: （11）预报员取消确认:查询text_data库表中对应记录；
@@ -276,7 +283,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         data.setGmtModified(new Date());
         data.setIsok(false);
         System.out.println(data.getIsok());
-        return textDataMapper.updateByPrimaryKeyWithBLOBs(data);
+        return textDataMapper.updateByPrimaryKey(data);
     }
     /**
      *@Description: 删除全部

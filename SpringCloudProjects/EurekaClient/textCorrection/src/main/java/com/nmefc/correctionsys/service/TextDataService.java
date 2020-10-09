@@ -2,6 +2,7 @@ package com.nmefc.correctionsys.service;
 
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDataExample;
+import com.nmefc.correctionsys.entity.TextDetail;
 import com.nmefc.correctionsys.entity.TextInfo;
 
 import java.util.List;
@@ -70,7 +71,7 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Author: QuYuan
      *@Date: 2020/5/8 11:35
      */
-    Integer update(TextData textData);
+    Integer update(TextData textData, List<TextDetail> textDetailList);
     /**
      *@Description:（10）预报员确认完成
      *@Param: [textData]
