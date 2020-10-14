@@ -1,4 +1,7 @@
 package com.nmefc.correctionsys.common.entity;
+
+import java.util.List;
+
 /**
  *@Description: 统一返回前端的响应类
  *@Param:
@@ -7,24 +10,42 @@ package com.nmefc.correctionsys.common.entity;
  *@Date: 2020/4/25 10:27
  */
 public class Result<T> {
-    private T date;
+    public List<T> getData() {
+        return data;
+    }
+
+    public void setData(List<T> data) {
+        this.data = data;
+    }
+
+    private List<T> data;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
     private String message;
     private int code;
     public Result(){
 
     }
 
-    public Result(T date, String message, int code) {
-        this.date = date;
+    public Result(List<T> data, String message, int code) {
+        this.data = data;
         this.message = message;
         this.code = code;
     }
 
-    public Result(String message, int code) {
-        this(null, message, code);
-    }
-
-    public Result(T date) {
-        this(date, "success", 200);
-    }
 }

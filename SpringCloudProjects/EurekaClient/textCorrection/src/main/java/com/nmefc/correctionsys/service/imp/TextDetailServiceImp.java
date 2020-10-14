@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("textDetailService")
 public class TextDetailServiceImp extends BaseServiceImp<TextDetail,Integer,TextDetailExample> implements TextDetailService {
     @Autowired
@@ -22,5 +24,13 @@ public class TextDetailServiceImp extends BaseServiceImp<TextDetail,Integer,Text
     @Override
     public Integer updateTextDetail(TextDetail textDetail) {
         return textDetailMapper.updateByPrimaryKeyWithBLOBs(textDetail);
+    }
+
+    @Override
+    public List<TextDetail> findByTextDataId(Integer id) {
+        TextDetailExample textDetailExample = new TextDetailExample();
+        textDetailExample.createCriteria().andTextDataIdEqualTo(id);
+        textDetailExample.setOrderByClause("interval_id ASC");
+        return textDetailMapper.selectByExampleWithBLOBs(textDetailExample);
     }
 }

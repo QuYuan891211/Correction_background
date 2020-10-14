@@ -1,23 +1,26 @@
 package com.nmefc.correctionsys.controller;
 
+import com.nmefc.correctionsys.common.entity.Result;
+import com.nmefc.correctionsys.common.enums.ResultCodeEnum;
+import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDetail;
 import com.nmefc.correctionsys.entity.TextInfo;
+import com.nmefc.correctionsys.entity.midModel.TextId;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins = "*",allowedHeaders ="*" )
 @RestController
-@RequestMapping(value = "textData")
+@RequestMapping(value = "/textData")
 public class TextDataController {
     @Autowired
     private TextDataService textDataService;
+
     /**
      *@Description: 测试方法
      *@Param:
@@ -42,13 +45,30 @@ public class TextDataController {
      * @Author: QuYuan
      * @Date: 2020/5/6 20:42
      */
-    @GetMapping(value = "/textData")
-    public TextData getTextDataById(Integer tid) {
+    @PostMapping(value = "/textData")
+    public Result<TextData> getTextDataById(@RequestBody TextId data) {
+        Result<TextData> textInfoResult = new Result<TextData>();
         //1.数据校验
-        if (tid == null) {
-            return null;
+        if (null == data.getId()) {
+
+            textInfoResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
+            textInfoResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textInfoResult;
         }
-        return textDataService.getTextDataById(tid);
+        TextData textData = textDataService.getTextDataById(data.getId());
+        if(null == textData){
+
+            textInfoResult.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
+            textInfoResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textInfoResult;
+        }
+
+        textInfoResult.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+        textInfoResult.setCode(ResultCodeEnum.SUCCESS.getCode());
+        List<TextData> textDataList = new ArrayList<>();
+        textDataList.add(textData);
+        textInfoResult.setData(textDataList);
+        return textInfoResult;
     }
 
     /**

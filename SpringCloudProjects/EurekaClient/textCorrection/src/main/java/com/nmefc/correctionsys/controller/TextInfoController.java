@@ -1,15 +1,15 @@
 package com.nmefc.correctionsys.controller;
 
+import com.nmefc.correctionsys.common.entity.Result;
+import com.nmefc.correctionsys.common.enums.ResultCodeEnum;
+import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.entity.TextInfo;
 import com.nmefc.correctionsys.service.TextInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "*",allowedHeaders ="*" )
 @RestController
 @RequestMapping(value = "/textInfo")
 public class TextInfoController {
@@ -68,11 +68,22 @@ public class TextInfoController {
      *@Author: QuYuan
      *@Date: 2020/5/5 1:23
      */
+
     @GetMapping(value = "/textInfoListByDepartment")
-    public List<TextInfo> getTextInfoListByDepartment(Integer departmentId){
+    public Result<TextInfo> getTextInfoListByDepartment(Integer departmentId){
         List<TextInfo> textInfoList = textInfoService.getLatestTextInfoByDepartment(departmentId);
-        if(textInfoList == null || textInfoList.size() < 1){return null;}
-        return textInfoList;
+        if(textInfoList == null || textInfoList.size() < 1){
+            Result<TextInfo> textInfoResult = new Result<TextInfo>();
+            textInfoResult.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
+            textInfoResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textInfoResult;
+        }
+        Result<TextInfo> textInfoResult = new Result<TextInfo>();
+        textInfoResult.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+        textInfoResult.setCode(ResultCodeEnum.SUCCESS.getCode());
+        textInfoResult.setData(textInfoList);
+        return textInfoResult;
+
     }
     /**
      *@Description:（1）新增文字模板

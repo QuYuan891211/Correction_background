@@ -1,5 +1,6 @@
 package com.nmefc.correctionsys.service.imp;
 
+import com.nmefc.correctionsys.common.utils.DateTimeUtils;
 import com.nmefc.correctionsys.dao.TextDataMapper;
 import com.nmefc.correctionsys.entity.*;
 import com.nmefc.correctionsys.service.TextDataService;
@@ -36,7 +37,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
  *@Description:（6）根据模板id查询当日文本记录：根据tid再text_data表中查询是否有记录；
 若记录数为0，返回空；
 若记录数为1，则将其内容填至TextData返回；
-若记录数大于1，则选其中t_version值最大的记录的内容填至TextData返回，将剩余的记录从数据库删除.
+若记录数大于1，则选其中t_version值最大的记录的内容填至TextData返回（若同一个版本有多条记录，返回最新的记录,删掉同版本当天其余的），将剩余的记录从数据库删除.
  *@Param: [id]
  *@Return: com.nmefc.correctionsys.entity.TextData
  *@Author: QuYuan
@@ -47,7 +48,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         List<TextData> textDataList = new ArrayList<>();
         TextDataExample textDataExample = new TextDataExample();
         textDataExample.createCriteria().andTidEqualTo(tid);
-        textDataExample.setOrderByClause("t_version DESC");
+        textDataExample.setOrderByClause("t_version DESC, gmt_create DESC");
         //注意这里如果要返回数据库TEXT类型，必须要用WithBLOBs方法
         textDataList = textDataMapper.selectByExample(textDataExample);
         switch (textDataList.size()){
@@ -57,7 +58,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
 //            若记录数为1，则将其内容填至TextData返回；
             case 1:
                 return textDataList.get(0);
-//            若记录数大于1，则选其中t_version值最大的记录的内容填至TextData返回，将剩余的记录从数据库删除.
+//            若记录数大于1，则选其中t_version值最大的记录的内容填至TextData返回，将剩余的记录(包括其它版本以及同版本同一天的)从数据库删除.
             default:
 //[to-do]这个方法要加入事务控制
                Integer newVersion = textDataList.get(0).gettVersion();
@@ -69,6 +70,12 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
                }catch (Exception ex){
                    System.out.println(ex.getMessage());
                }
+               //此时还会存在同TID同Version的数据，只读取最新的,删掉当天其它的。
+                TextDataExample textDataExampleNext = new TextDataExample();
+                textDataExampleNext.createCriteria().andTidEqualTo(tid);
+                textDataExampleNext.setOrderByClause("gmt_modified DESC");
+                textDataList = textDataMapper.selectByExample(textDataExampleNext);
+
                return textDataList.get(0);
         }
 
