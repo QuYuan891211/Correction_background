@@ -6,6 +6,7 @@ import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDetail;
 import com.nmefc.correctionsys.entity.TextInfo;
+import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 import com.nmefc.correctionsys.entity.midModel.TextId;
 import com.nmefc.correctionsys.service.TextDataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,28 +48,28 @@ public class TextDataController {
      */
     @PostMapping(value = "/textData")
     public Result<TextData> getTextDataById(@RequestBody TextId data) {
-        Result<TextData> textInfoResult = new Result<TextData>();
+        Result<TextData> textDataResult = new Result<TextData>();
         //1.数据校验
         if (null == data.getId()) {
 
-            textInfoResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
-            textInfoResult.setCode(ResultCodeEnum.FAIL.getCode());
-            return textInfoResult;
+            textDataResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
         }
         TextData textData = textDataService.getTextDataById(data.getId());
         if(null == textData){
 
-            textInfoResult.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
-            textInfoResult.setCode(ResultCodeEnum.FAIL.getCode());
-            return textInfoResult;
+            textDataResult.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
         }
 
-        textInfoResult.setMessage(ResultMsgEnum.SUCCESS.getMsg());
-        textInfoResult.setCode(ResultCodeEnum.SUCCESS.getCode());
+        textDataResult.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+        textDataResult.setCode(ResultCodeEnum.SUCCESS.getCode());
         List<TextData> textDataList = new ArrayList<>();
         textDataList.add(textData);
-        textInfoResult.setData(textDataList);
-        return textInfoResult;
+        textDataResult.setData(textDataList);
+        return textDataResult;
     }
 
     /**
@@ -191,9 +192,22 @@ public class TextDataController {
      *@Date: 2020/5/14 9:34
      */
     @PostMapping(value = "/checkByForecaster")
-    public Integer checkByForecaster(TextData textData){
-        if(textData == null||textData.getId() == null){ return 0; }
-        return textDataService.checkByForecaster(textData);
+    public Result<TextDetail> checkByForecaster(@RequestBody TextDataAndTextDetailSaveModel data){
+        Result<TextDetail> textDataResult = new Result<TextDetail>();
+        if(data == null||data.getId() == null){
+            textDataResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
+        }
+        if(textDataService.checkByForecaster(data)>0){
+            textDataResult.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+            textDataResult.setCode(ResultCodeEnum.SUCCESS.getCode());
+            return textDataResult;
+        }else {
+            textDataResult.setMessage(ResultMsgEnum.FAIL.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
+        }
     }
     /**
      *@Description:(11)预报员取消确认

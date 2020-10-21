@@ -1,9 +1,7 @@
 package com.nmefc.correctionsys.service;
 
-import com.nmefc.correctionsys.entity.TextData;
-import com.nmefc.correctionsys.entity.TextDataExample;
-import com.nmefc.correctionsys.entity.TextDetail;
-import com.nmefc.correctionsys.entity.TextInfo;
+import com.nmefc.correctionsys.entity.*;
+import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 
 import java.util.List;
 
@@ -79,7 +77,7 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Author: QuYuan
      *@Date: 2020/5/14 9:30
      */
-    Integer checkByForecaster(TextData textData);
+    Integer checkByForecaster(TextDataAndTextDetailSaveModel model);
     /**
      *@Description:（11）预报员取消确认
      *@Param: [textData]
@@ -96,4 +94,6 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Date: 2020/5/14 16:13
      */
     Integer deleteAll();
+
+    TextData getLastDayTextData(TextInfoKey textInfoKey);
 }

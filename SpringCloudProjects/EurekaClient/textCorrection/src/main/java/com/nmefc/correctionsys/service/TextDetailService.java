@@ -10,4 +10,6 @@ public interface TextDetailService extends BaseService<TextDetail,Integer,TextDe
     Integer updateTextDetail(TextDetail textDetail);
 
     List<TextDetail> findByTextDataId(Integer id);
+
+    List<TextDetail> getLastDayTextDetailById(Integer id);
 }

@@ -3,6 +3,7 @@ package com.nmefc.correctionsys.service.imp;
 import com.nmefc.correctionsys.common.utils.DateTimeUtils;
 import com.nmefc.correctionsys.dao.TextDataMapper;
 import com.nmefc.correctionsys.entity.*;
+import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextDetailService;
 import com.nmefc.correctionsys.service.TextInfoService;
@@ -254,8 +255,8 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         return 1;
     }
     /**
-     *@Description:（10）预报员确认完成: 查询text_data库表中对应记录，
-     * 将对应记录中的forecaster填入预报员名，
+     *@Description:（10）预报员确认完成: 根据ID查询TEXTData表，如果查到的内容的gmt_modified和当前日期为同一天，则更新：将对应记录中的forecaster更新为新预报员名，将isok置1，gmt_modified更新为当前时间；
+    如果查到的内容的gmt_modified和当前日期不是同一天，则新插入一条记录：将对应记录中的forecaster更新为新预报员名，将isok置1，gmt_time更新为当前时间；
      * 将isok置1，creat_time更新为当前时间；
      *@Param: []
      *@Return: java.lang.Integer
@@ -263,14 +264,59 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
      *@Date: 2020/5/14 9:25
      */
     @Transactional
-    public Integer checkByForecaster(TextData textData){
-        TextData data = selectByPrimaryKey(textData.getId());
-//        [to-do]后续要从登录系统中获取
-        if(data == null){return 0;}
+    public Integer checkByForecaster(TextDataAndTextDetailSaveModel model){
+        TextData data = selectByPrimaryKey(model.getId());
+//        //后续要从登录系统中获取
+        if (null == data){return 0;}
         data.setForecaster("默认预报员");
-        data.setGmtModified(new Date());
+//        data.setIsok(true);
+
         data.setIsok(true);
-        return textDataMapper.updateByPrimaryKey(data);
+        System.out.println(data.getGmtModified());
+        if(!DateTimeUtils.isToday(data.getGmtModified())){
+            //如果是当天没有textdata时
+            data.setGmtModified(new Date());
+            data.setId(null);
+            textDataMapper.insertSelective(data);
+            TextDataExample textDataExample = new TextDataExample();
+            textDataExample.or().andTVersionEqualTo(data.gettVersion()).andTidEqualTo(data.getTid()).andGmtModifiedGreaterThan(DateTimeUtils.initDateByDay());
+            textDataExample.setOrderByClause("gmt_modified DESC");
+            Integer textDataId = textDataMapper.selectByExample(textDataExample).get(0).getId();
+            //插入新的TextDetail，并关联textDataId
+            List<TextDetail> textDetailList = new ArrayList<>();
+            for(int i = 0; i< model.getTextDetailList().size();i++){
+                TextDetail textDetail = new TextDetail();
+                textDetail.setGmtCreate(new Date());
+                textDetail.setGmtModified(new Date());
+                textDetail.setTextDataId(textDataId);
+                textDetail.setText(model.getTextDetailList().get(i));
+                textDetail.setIntervalId(i+1);
+                textDetailService.insertSelective(textDetail);
+
+            }
+            return 1;
+        }else {
+            //如果是当天有textData时
+            data.setGmtModified(new Date());
+            try {
+
+                textDataMapper.updateByPrimaryKeySelective(data);
+                List<TextDetail> list = textDetailService.findByTextDataId(model.getId());
+                if(null == list || list.size() <1 || list.size() != model.getTextDetailList().size()){
+                    return 0;
+                }
+                for(int i = 0; i< list.size();i++){
+                    TextDetail textDetail = list.get(i);
+                    textDetail.setGmtModified(new Date());
+                    textDetail.setText(model.getTextDetailList().get(i));
+                    textDetailService.updateTextDetail(textDetail);
+                }
+                return 1;
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return 0;
+        }
     }
     /**
      *@Description: （11）预报员取消确认:查询text_data库表中对应记录；
@@ -311,5 +357,23 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         }
 //        [to-do]使用枚举约束
         return 9999;
+    }
+
+    @Override
+    public TextData getLastDayTextData(TextInfoKey textInfoKey) {
+        if(null != textInfoKey && textInfoKey.getTid() != null && textInfoKey.gettVersion() != null){
+            try{
+                TextDataExample textDataExample = new TextDataExample();
+                textDataExample.or().andGmtModifiedBetween(DateTimeUtils.initLastDateByDay(),DateTimeUtils.initDateByDay()).andTidEqualTo(textInfoKey.getTid()).andTVersionEqualTo(textInfoKey.gettVersion());
+                textDataExample.setOrderByClause("gmt_modified DESC");
+                return textDataMapper.selectByExample(textDataExample).get(0);
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }else {
+            return null;
+        }
+        return null;
     }
 }
