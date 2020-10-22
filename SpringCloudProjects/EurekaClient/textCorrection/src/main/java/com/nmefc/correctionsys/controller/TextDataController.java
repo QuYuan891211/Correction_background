@@ -72,17 +72,17 @@ public class TextDataController {
         return textDataResult;
     }
 
-    /**
-     * @Description:（7）查询当日已编辑文本记录
-     * @Param: []
-     * @Return: java.util.List<com.nmefc.correctionsys.entity.TextData>
-     * @Author: QuYuan
-     * @Date: 2020/5/6 23:27
-     */
-    @GetMapping(value = "/all")
-    public List<TextData> getAllTextData() {
-        return textDataService.getAll();
-    }
+//    /**
+//     * @Description:（7）查询当日已编辑文本记录
+//     * @Param: []
+//     * @Return: java.util.List<com.nmefc.correctionsys.entity.TextData>
+//     * @Author: QuYuan
+//     * @Date: 2020/5/6 23:27
+//     */
+//    @GetMapping(value = "/all")
+//    public List<TextData> getAllTextData() {
+//        return textDataService.getAll();
+//    }
 
     /**
      * @Description:（8）删除指定的当日已编辑文本记录
@@ -106,18 +106,15 @@ public class TextDataController {
      * @Author: QuYuan
      * @Date: 2020/5/7 10:04
      */
-    @GetMapping(value = "/lastCheck")
-    public String lastCheck(TextData textData) {
-        if (textData == null || textData.getGmtCreate() == null ||textData.getGmtModified() == null|| textData.gettVersion() == null || textData.getTid() == null || textData.getId() == 0 || textData.getIsok() == null) {
-            return "传入参数有误";
+    @PostMapping(value = "/lastCheck")
+    public Result<TextData> lastCheck(@RequestBody TextId data) {
+        Result<TextData> textDataResult = new Result<TextData>();
+        if(null == data || data.getId() == null){
+            textDataResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
         }
-        if (!textData.getIsok()) {
-            return "预报员未确认完成";
-        }
-        if (0 == textDataService.lastCheck(textData)) {
-            return "确认失败";
-        }
-        return "确认成功";
+        return textDataService.lastCheck(data.getId());
     }
 
 
@@ -129,14 +126,14 @@ public class TextDataController {
      * @Date: 2020/5/7 10:04
      */
     @PostMapping(value = "/cancelLastCheck")
-    public String cancelLastCheck(TextData textData) {
-        if (textData == null || textData.getGmtCreate() == null ||textData.getGmtModified() == null || textData.gettVersion() == null || textData.getTid() == null || textData.getId() == 0 || textData.getIsok() == null) {
-            return "传入参数有误";
+    public Result<TextData> cancelLastCheck(@RequestBody TextId data) {
+        Result<TextData> textDataResult = new Result<TextData>();
+        if(null == data || data.getId() == null){
+            textDataResult.setMessage(ResultMsgEnum.ERROR_PARAMETER.getMsg());
+            textDataResult.setCode(ResultCodeEnum.FAIL.getCode());
+            return textDataResult;
         }
-        if (0 == textDataService.cancelLastCheck(textData)) {
-            return "审核人员身份验证错误";
-        }
-        return "取消成功";
+        return textDataService.cancelLastCheck(data.getId());
     }
     /**
      *@Description:（9）根据文本记录查询文本模板

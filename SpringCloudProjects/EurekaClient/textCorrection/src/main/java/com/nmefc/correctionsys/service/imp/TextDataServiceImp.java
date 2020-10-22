@@ -1,8 +1,12 @@
 package com.nmefc.correctionsys.service.imp;
 
+import com.nmefc.correctionsys.common.entity.Result;
+import com.nmefc.correctionsys.common.enums.ResultCodeEnum;
+import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.common.utils.DateTimeUtils;
 import com.nmefc.correctionsys.dao.TextDataMapper;
 import com.nmefc.correctionsys.entity.*;
+import com.nmefc.correctionsys.entity.API.CorrectPacket;
 import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 import com.nmefc.correctionsys.service.TextDataService;
 import com.nmefc.correctionsys.service.TextDetailService;
@@ -76,13 +80,19 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
                 textDataExampleNext.createCriteria().andTidEqualTo(tid);
                 textDataExampleNext.setOrderByClause("gmt_modified DESC");
                 textDataList = textDataMapper.selectByExample(textDataExampleNext);
-
+                if(textDataList == null){return null;}
+                if(textDataList.size() > 1){
+                    Integer id = textDataList.get(0).getId();
+                    TextDataExample textDataExampleToday = new TextDataExample();
+                    textDataExampleToday.or().andTidEqualTo(tid).andTVersionEqualTo(newVersion).andGmtModifiedGreaterThan(DateTimeUtils.initDateByDay()).andIdNotEqualTo(id);
+                    textDataMapper.deleteByExample(textDataExampleToday);
+                }
                return textDataList.get(0);
         }
 
     }
     /**
-     *@Description:（7）查询当日已编辑文本记录: 从text_data库中查询所有数据并返回
+     *@Description:（7）查询当日已编辑文本记录: 从text_data库中查询gmt_modified为当日的数据并返回
      *@Param: []
      *@Return: java.util.List<com.nmefc.correctionsys.entity.TextData>
      *@Author: QuYuan
@@ -91,7 +101,8 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
     public List<TextData> getAll(){
         List<TextData> textDataList = new ArrayList<>();
         TextDataExample textDataExample = new TextDataExample();
-        textDataExample.setOrderByClause("t_version DESC");
+        textDataExample.createCriteria().andGmtModifiedGreaterThan(DateTimeUtils.initDateByDay());
+        textDataExample.setOrderByClause("tid DESC");
         try{
             textDataList = textDataMapper.selectByExample(textDataExample);
         }catch (Exception ex){
@@ -112,17 +123,38 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
      *@Date: 2020/5/7 9:51
      */
     @Transactional
-    public Integer lastCheck(TextData textData){
+    public Result<TextData> lastCheck(Integer id){
+        Result<TextData> result = new Result<>();
+        TextData textData = textDataMapper.selectByPrimaryKey(id);
+        if(null == textData){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
+            return result;
+        }
+        if(textData.getForecaster() == null){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NULL_FORECASTER.getMsg());
+            return result;
+        }
+        if(!DateTimeUtils.isToday(textData.getGmtModified())){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NOT_TADAY.getMsg());
+            return result;
+        }
         //[to-do]做完登录系统后，这里面要改为从Session中得到username
         textData.setChecker("默认审核员");
-        textData.setGmtModified(new Date());
-
         try{
-            return textDataMapper.updateByPrimaryKey(textData);
+            textDataMapper.updateByPrimaryKey(textData);
+            result.setCode(ResultCodeEnum.SUCCESS.getCode());
+            result.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+            return result;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.CONTACT_ADMIN.getMsg());
+            return result;
         }
-        return 0;
+
     }
 /**
  *@Description:（13）审核人员取消签名:查询当日已编辑文本记录，根据TextData.id从所查询到的列表中选出记录；
@@ -135,19 +167,43 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
  *@Date: 2020/5/7 13:03
  */
     @Transactional
-    public Integer cancelLastCheck(TextData textData){
+    public Result<TextData> cancelLastCheck(Integer id){
+        Result<TextData> result = new Result<>();
+        TextData textData = textDataMapper.selectByPrimaryKey(id);
+        if(null == textData){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NULL_DATA.getMsg());
+            return result;
+        }
+        if(textData.getForecaster() == null){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NULL_FORECASTER.getMsg());
+            return result;
+        }
+        if(!DateTimeUtils.isToday(textData.getGmtModified())){
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.NOT_TADAY.getMsg());
+            return result;
+        }
         //[to-do]做完登录系统后，这里面要改为从Session中得到username
         if("默认审核员".equals(textData.getChecker())){
             textData.setChecker(null);
-            textData.setGmtModified(new Date());
             try{
-                return textDataMapper.updateByPrimaryKey(textData);
+                textDataMapper.updateByPrimaryKey(textData);
+                result.setCode(ResultCodeEnum.SUCCESS.getCode());
+                result.setMessage(ResultMsgEnum.SUCCESS.getMsg());
+                return result;
             }catch (Exception ex){
                 System.out.println(ex.getMessage());
+                result.setCode(ResultCodeEnum.FAIL.getCode());
+                result.setMessage(ResultMsgEnum.CONTACT_ADMIN.getMsg());
+                return result;
             }
+        }else {
+            result.setCode(ResultCodeEnum.FAIL.getCode());
+            result.setMessage(ResultMsgEnum.ERROR_CHECKER.getMsg());
+            return result;
         }
-
-        return 0;
     }
     /**
      *@Description:（9）根据文本记录查询文本模板:查询当日已编辑文本记录，根据其tid、t_version从text_info表中查询相关记录并返回
@@ -374,6 +430,14 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
         }else {
             return null;
         }
+        return null;
+    }
+
+    @Override
+    public CorrectPacket getCorrectPacketToday() {
+        List<TextData> textDataList = this.getAll();
+
+
         return null;
     }
 }

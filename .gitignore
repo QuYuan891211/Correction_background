@@ -1,1 +1,3 @@
 /SpringCloudProjects/.idea
+/SpringCloudProjects/Config/config-server/src/main/resources/*.yml
+/SpringCloudProjects/Config/config-server/src/main/resources/*.bak

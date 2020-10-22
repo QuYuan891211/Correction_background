@@ -1,6 +1,8 @@
 package com.nmefc.correctionsys.service;
 
+import com.nmefc.correctionsys.common.entity.Result;
 import com.nmefc.correctionsys.entity.*;
+import com.nmefc.correctionsys.entity.API.CorrectPacket;
 import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Author: QuYuan
      *@Date: 2020/5/7 10:00
      */
-    Integer lastCheck(TextData textData);
+    Result<TextData> lastCheck(Integer id);
     /**
      *@Description:（13）审核人员取消签名
      *@Param: [textData]
@@ -37,7 +39,7 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Author: QuYuan
      *@Date: 2020/5/7 13:00
      */
-    Integer cancelLastCheck(TextData textData);
+    Result<TextData> cancelLastCheck(Integer id);
     /**
      *@Description:（9）根据文本记录查询文本模板
      *@Param: []
@@ -96,4 +98,6 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
     Integer deleteAll();
 
     TextData getLastDayTextData(TextInfoKey textInfoKey);
+
+    CorrectPacket getCorrectPacketToday();
 }
