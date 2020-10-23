@@ -3,6 +3,7 @@ package com.nmefc.correctionsys.controller;
 import com.nmefc.correctionsys.common.entity.Result;
 import com.nmefc.correctionsys.common.enums.ResultCodeEnum;
 import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
+import com.nmefc.correctionsys.entity.API.CorrectPacket;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDetail;
 import com.nmefc.correctionsys.entity.TextInfo;
@@ -219,4 +220,8 @@ public class TextDataController {
         return textDataService.uncheckByForecaster(textData);
     }
 
+    @GetMapping(value = "/getCorrectTextToday")
+    public CorrectPacket getCorrectTextToday(){
+        return textDataService.getCorrectPacketToday();
+    }
 }

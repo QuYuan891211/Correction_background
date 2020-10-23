@@ -6,6 +6,7 @@ import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.common.utils.DateTimeUtils;
 import com.nmefc.correctionsys.dao.TextDataMapper;
 import com.nmefc.correctionsys.entity.*;
+import com.nmefc.correctionsys.entity.API.CorrectData;
 import com.nmefc.correctionsys.entity.API.CorrectPacket;
 import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 import com.nmefc.correctionsys.service.TextDataService;
@@ -435,9 +436,34 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
 
     @Override
     public CorrectPacket getCorrectPacketToday() {
+        CorrectPacket correctPacket = new CorrectPacket();
+        List<CorrectData> correctDataList = new ArrayList<>();
         List<TextData> textDataList = this.getAll();
+        if(null == textDataList ){return null;}
 
+        textDataList.forEach(item->{
+            //获取当前的TextData对应的TextInfo
+            TextInfo textInfo = textInfoService.getTextInfoByIdAndVersion(item.getTid(),item.gettVersion());
+            //获得简称
+            String abb = textInfo.gettAbbreviation();
+            //获得当前textData所对应的TextDetail
+            List<TextDetail> textDetailList = textDetailService.findByTextDataId(item.getId());
+            if(null != textDetailList && textDetailList.size()>0){
+                textDetailList.forEach(textDetail->{
+                    CorrectData correctData = new CorrectData();
+                    correctData.setElementAbb("text");
+                    correctData.setStationAbb(abb);
+                    correctData.setPrescriptionNum(textDetail.getIntervalId());
+                    boolean isChecked = item.getChecker() == null ? false:true;
+                    correctData.setChecked(isChecked);
+                    correctData.setData(textDetail.getText());
+                    correctDataList.add(correctData);
+                });
 
-        return null;
+            }
+        });
+        correctPacket.setDate(new Date());
+        correctPacket.setDataList(correctDataList);
+        return correctPacket;
     }
 }
