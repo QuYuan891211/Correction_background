@@ -1,0 +1,22 @@
+#指定端口号
+server:
+  port: 5000
+
+spring:
+  application:
+  #指定服务名称
+    name: eureka_server
+  profiles: peer2
+eureka:
+  instance:
+#  路径
+    hostname: peer2
+  client:
+#  是否向注册中心获取服务这里我们通过两个注册中心互相注册，搭建了注册中心的双节点集群，由于defaultZone使用了域名，所以还需在本机的host文件中配置一下。
+    fetch-registry: true
+#  是否向注册中心注册
+    register-with-eureka: true
+    #默认注册中心URL,这里我们让两个注册中心分别注册到对方上去
+    service-url:
+      defaultZone : http://peer1:5000/eureka/
+
