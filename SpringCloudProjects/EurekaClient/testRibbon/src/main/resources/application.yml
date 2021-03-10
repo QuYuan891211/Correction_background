@@ -19,5 +19,5 @@ eureka:
     register-with-eureka: true
     #默认注册中心URL,这里我们让他注册到两个注册中心上
     service-url:
-      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+      defaultZone: http://128.5.3.155:5000/eureka/,http://128.5.3.156:5000/eureka/
 

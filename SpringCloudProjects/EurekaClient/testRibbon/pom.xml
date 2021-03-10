@@ -24,36 +24,43 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.2.5.RELEASE</version>
 		</dependency>
+		<!--&lt;!&ndash;加入Web开发框架&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-eureka</artifactId>-->
+			<!--<version>1.3.2.RELEASE</version>-->
+		<!--</dependency>-->
 		<!--加入客户端负载均衡器-->
-		<dependency>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-boot-starter-ribbon</artifactId>
-		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>org.springframework.cloud</groupId>-->
+		<!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+		<!--</dependency>-->
 		<!--作为Eureka的客户端之一-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-test</artifactId>-->
+			<!--<scope>test</scope>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.junit.vintage</groupId>-->
+					<!--<artifactId>junit-vintage-engine</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-test</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-commons</artifactId>
-			<version>RELEASE</version>
+			<version>2.2.2.RELEASE</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

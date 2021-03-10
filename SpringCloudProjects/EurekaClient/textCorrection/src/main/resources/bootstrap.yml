@@ -5,8 +5,10 @@ spring: #config的相关配置要先于application.yml,而bootstrap.yml文件的
     config:
       name: text  #应用名
       profile: dev  #dev开发环境，test测试环境，pro生成运行环境
-      uri: http://localhost:5002   #config server地址
-      label: trunk
+      discovery:
+        enabled: true
+        service-id:  #注册中心的统一配置中心名称
+#      uri: http://localhost:5002   #config server地址
 
 eureka:
   client:
@@ -16,6 +18,6 @@ eureka:
     register-with-eureka: true
     #默认注册中心URL,这里我们让他注册到两个注册中心上
     service-url:
-      defaultZone: http://replica1:5000/eureka/,http://replica2:5001/eureka/
+      defaultZone: http://128.5.3.155:5000/eureka/,http://128.5.3.156:5000/eureka/
 
 

@@ -219,7 +219,13 @@ public class TextDataController {
         if(textData == null||textData.getId() == null){ return 0; }
         return textDataService.uncheckByForecaster(textData);
     }
-
+    /**
+     *@Description:（3）获取当日全部文本（产品制作的接口方法）
+     *@Param: []
+     *@Return: com.nmefc.correctionsys.entity.API.CorrectPacket
+     *@Author: QuYuan
+     *@Date: 2021/3/8 16:01
+     */
     @GetMapping(value = "/getCorrectTextToday")
     public CorrectPacket getCorrectTextToday(){
         return textDataService.getCorrectPacketToday();
