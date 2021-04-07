@@ -25,6 +25,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 		<!--加入客户端负载均衡器-->
 		<!--<dependency>-->
 			<!--<groupId>org.springframework.cloud</groupId>-->

@@ -9,8 +9,8 @@ spring:
   profiles: peer2
 eureka:
   instance:
-#  路径
     hostname: peer2
+#  路径
   client:
 #  是否向注册中心获取服务这里我们通过两个注册中心互相注册，搭建了注册中心的双节点集群，由于defaultZone使用了域名，所以还需在本机的host文件中配置一下。
     fetch-registry: true

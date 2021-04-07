@@ -4,6 +4,7 @@ import com.nmefc.correctionsys.common.entity.Result;
 import com.nmefc.correctionsys.common.enums.ResultCodeEnum;
 import com.nmefc.correctionsys.common.enums.ResultMsgEnum;
 import com.nmefc.correctionsys.entity.API.CorrectPacket;
+import com.nmefc.correctionsys.entity.API.ResponseInfo;
 import com.nmefc.correctionsys.entity.TextData;
 import com.nmefc.correctionsys.entity.TextDetail;
 import com.nmefc.correctionsys.entity.TextInfo;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 @CrossOrigin(origins = "*",allowedHeaders ="*" )
 @RestController
@@ -227,7 +229,14 @@ public class TextDataController {
      *@Date: 2021/3/8 16:01
      */
     @GetMapping(value = "/getCorrectTextToday")
-    public CorrectPacket getCorrectTextToday(){
-        return textDataService.getCorrectPacketToday();
+    public ResponseInfo getCorrectTextToday(){
+        CorrectPacket correctPacket = textDataService.getCorrectPacketToday();
+        ResponseInfo responseInfo = new ResponseInfo();
+        responseInfo.setServerTime(new Date());
+        responseInfo.setSucceed(true);
+        responseInfo.setMsg("接口调用成功!");
+        responseInfo.setCode("OK");
+        responseInfo.setResult(correctPacket);
+        return responseInfo;
     }
 }

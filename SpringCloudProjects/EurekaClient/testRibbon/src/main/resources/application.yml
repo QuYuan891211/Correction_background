@@ -1,6 +1,6 @@
 #指定端口号
 server:
-  port: 9000
+  port: 8001
 log4j:
   debug: true
   rootLogger: debug, stdout

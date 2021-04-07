@@ -1,5 +1,6 @@
 package com.nmefc.testribbon.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.nmefc.testribbon.entity.API.CorrectPacket;
 import com.nmefc.testribbon.entity.TextInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class TestController {
     RestTemplate restTemplate;
 
 
-    @PostMapping(value = "/getTextInfo")
-    public String getTextInfo(Integer id, Integer version){
+    @GetMapping(value = "/getTextInfo")
+    public String getTextInfo(){
           MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
         /** paramMap.add("id", id);
         paramMap.add("version", version);
@@ -39,15 +40,15 @@ public class TestController {
 //                "http://TEXT-CORRECTION/textInfo/getTextInfo",paramMap,TextInfo.class
 //        );
 //        无参数
-        ResponseEntity<CorrectPacket> responseEntity =  restTemplate.postForEntity(
-               "http://TEXT-CORRECTION/textData/getCorrectTextToday", paramMap, CorrectPacket.class
+        ResponseEntity<CorrectPacket> responseEntity =  restTemplate.getForEntity(
+               "http://TEXT-CORRECTION/textData/getCorrectTextToday", CorrectPacket.class
         );
         // 如果状态等于200则证明查询成功。否则接口调用失败
 
         if (responseEntity.getStatusCodeValue() == 200) {
             CorrectPacket correctPacket = responseEntity.getBody();
-
-            return correctPacket.toString();
+            String json = JSON.toJSONString(correctPacket);
+            return json;
         }
         return "false";
     }

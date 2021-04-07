@@ -23,4 +23,5 @@ public class CorrectPacket {
     }
 
     private List<CorrectData> dataList;
+
 }

@@ -7,10 +7,12 @@ spring: #config的相关配置要先于application.yml,而bootstrap.yml文件的
       profile: dev  #dev开发环境，test测试环境，pro生成运行环境
       discovery:
         enabled: true
-        service-id:  #注册中心的统一配置中心名称
-#      uri: http://localhost:5002   #config server地址
+        service-id: CONFIG-SERVER #注册中心的统一配置中心名称
+#     uri: http://128.5.3.84:9000   #config server地址
 
 eureka:
+  instance:
+    hostname: ${spring.cloud.client.ip-address}
   client:
 #  是否向注册中心获取服务这里我们通过两个注册中心互相注册，搭建了注册中心的双节点集群，由于defaultZone使用了域名，所以还需在本机的host文件中配置一下。
     fetch-registry: true
