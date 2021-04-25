@@ -94,4 +94,20 @@ public abstract class BaseServiceImp<T,K,E> implements BaseService<T,K,E>{
         }
         return 0;
     }
+/**
+ *@Description: 根据excemple可选更新
+ *@Param: [e]
+ *@Return: int
+ *@Author: QuYuan
+ *@Date: 2021/4/24 10:12
+ */
+    @Override
+    public int updateByExampleSelective(T t, E e) {
+        try {
+            return baseMapper.updateByExampleSelective(t,e);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
 }

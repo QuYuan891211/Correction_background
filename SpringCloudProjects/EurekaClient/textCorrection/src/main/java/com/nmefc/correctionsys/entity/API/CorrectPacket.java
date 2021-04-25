@@ -6,6 +6,8 @@ import java.util.List;
 public class CorrectPacket {
     private Date date;
 
+    private List<CorrectData> dataList;
+
     public Date getDate() {
         return date;
     }
@@ -22,6 +24,6 @@ public class CorrectPacket {
         this.dataList = dataList;
     }
 
-    private List<CorrectData> dataList;
+
 
 }

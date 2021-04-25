@@ -5,6 +5,7 @@ import com.nmefc.correctionsys.entity.*;
 import com.nmefc.correctionsys.entity.API.CorrectPacket;
 import com.nmefc.correctionsys.entity.midModel.TextDataAndTextDetailSaveModel;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TextDataService extends BaseService<TextData,Integer,TextDataExample>{
@@ -63,7 +64,7 @@ public interface TextDataService extends BaseService<TextData,Integer,TextDataEx
      *@Author: QuYuan
      *@Date: 2020/5/7 14:48
      */
-    Integer saveOneTextDataByTextInfo(TextInfo textInfo);
+    Integer saveOneTextDataByTextInfo(TextInfo textInfo, Date date);
     /**
      *@Description: （5）更新当日文本记录
      *@Param: [textData]

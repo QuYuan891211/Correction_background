@@ -171,7 +171,7 @@ public class TextDataController {
     @PostMapping(value = "/save")
     public Integer saveOneTextData(TextInfo textInfo){
         if(textInfo == null || textInfo.getTid() == null){ return 0; }
-        return textDataService.saveOneTextDataByTextInfo(textInfo);
+        return textDataService.saveOneTextDataByTextInfo(textInfo, textInfo.getGmtModified());
     }
     /**
      *@Description: （5）更新当日文本记录
@@ -239,4 +239,6 @@ public class TextDataController {
         responseInfo.setResult(correctPacket);
         return responseInfo;
     }
+
+
 }

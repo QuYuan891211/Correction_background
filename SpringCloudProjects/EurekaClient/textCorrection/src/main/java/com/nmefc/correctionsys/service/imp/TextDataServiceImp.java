@@ -238,8 +238,8 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
 //        return deleteByPrimaryKey(id);
 //    }
     /**
-     *@Description:（1）根据模板新建文本记录: 新建一条text_data记录，tid=TextInfo.tid，t_version为最新版本号，
-     * date为当天日期，creat_time为当前时间，isok=0；f
+     *@Description:（1）根据模板新建文本记录(nc转换工程使用的API): 新建一条text_data记录（若已为同一天接收的文本信息，则更新），tid=TextInfo.tid，t_version为其对应的TextInfo最新版本号，
+     * date为当天日期，creat_time为传入的时间，isok=0；f
      * orecaster、checker、t_data为空
      *@Param: [textInfo]
      *@Return: java.lang.Integer
@@ -247,27 +247,39 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
      *@Date: 2020/5/7 14:48
      */
     @Transactional
-    public Integer saveOneTextDataByTextInfo(TextInfo textInfo){
+    public Integer saveOneTextDataByTextInfo(TextInfo textInfo, Date date){
 
-        //1.获取最新版本号
-        Integer latestVersion = textInfoService.getVersionListById(textInfo.getTid()).get(0).gettVersion();
+        //1.获取今天之后日期的且指定版本号和tid 的textDataList
+//        Integer latestVersion = textInfoService.getVersionListById(textInfo.getTid()).get(0).gettVersion();
         TextDataExample textDataExample = new TextDataExample();
-        textDataExample.or().andTidEqualTo(textInfo.getTid()).andTVersionEqualTo(latestVersion);
+        textDataExample.or().andTidEqualTo(textInfo.getTid()).andTVersionEqualTo(textInfo.gettVersion()).andGmtModifiedGreaterThan(DateTimeUtils.initDateByDay());
+        textDataExample.setOrderByClause("gmt_modified DESC");
         List<TextData> textDataList = new ArrayList<>();
+        //2.没有则新建
         textDataList = selectByExample(textDataExample);
+        TextData textData = new TextData();
+
         if(textDataList.size() < 1){
-            //没有则新建
-          TextData textData = new TextData();
-          textData.setGmtModified(new Date());
-          textData.setDate(new Date());
-          textData.setIsok(false);
-          textData.setGmtCreate(new Date());
+            textData.setGmtModified(date);
+            textData.setIsok(false);
+//            textData.setForecaster(null);
+          //这个属性暂时不用了
+//          textData.setDate(date);
+
+          textData.setGmtCreate(date);
           textData.setTid(textInfo.getTid());
-          textData.settVersion(latestVersion);
+          textData.settVersion(textInfo.gettVersion());
           //因为text类型的字段未赋值，所以可以使用不带BLOBS的方法
           return insertSelective(textData);
         }else {
-            return 0;
+            //3.如果已存在应该只有1条，如果超过1条，则更新最新的一条
+            textData = textDataList.get(0);
+            textData.setGmtModified(date);
+            textData.setIsok(false);
+            textData.setForecaster(null);
+            TextDataExample updateTextDataExample = new TextDataExample();
+            updateTextDataExample.createCriteria().andIdEqualTo(textData.getId());
+            return updateByExampleSelective(textData,updateTextDataExample);
         }
     }
     /**
