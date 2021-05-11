@@ -129,7 +129,7 @@ public class TextDetailServiceImp extends BaseServiceImp<TextDetail,Integer,Text
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-                //4. 找到新增的那条TextData记录，新增多条TextDetail记录
+                //4. 找到新增（更新）的那条TextData记录，新增（更新）多条TextDetail记录
 
                 TextDataExample textDataExample = new TextDataExample();
                 textDataExample.createCriteria().andTVersionEqualTo(lastVersionTextInfo.gettVersion()).andTidEqualTo(lastVersionTextInfo.getTid());
@@ -140,21 +140,46 @@ public class TextDetailServiceImp extends BaseServiceImp<TextDetail,Integer,Text
                 }
                 //4.1 获取id
                 TextData textData = textDataList.get(0);
+                //4.2 找到是否有现有的Detail
+                TextDetailExample textDetailExample = new TextDetailExample();
+                textDetailExample.createCriteria().andTextDataIdEqualTo(textData.getId());
+                List<TextDetail> textDetailList = selectByExample(textDetailExample);
 
-                correctDataGroupedList.forEach(correctData -> {
+                if(null==textDetailList||textDetailList.size() < 1){
+                //4.3 没有记录，新增
+                    correctDataGroupedList.forEach(correctData -> {
 
-                    TextDetail textDetail = new TextDetail();
-                    textDetail.setGmtCreate(new Date());
-                    textDetail.setGmtModified(new Date());
-                    textDetail.setText(correctData.getData());
-                    textDetail.setIntervalId(correctData.getPrescriptionNum());
-                    textDetail.setTextDataId(textData.getId());
-                    try{
-                        this.insertSelective(textDetail);
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                });
+                        TextDetail textDetail = new TextDetail();
+                        textDetail.setGmtCreate(new Date());
+                        textDetail.setGmtModified(new Date());
+                        textDetail.setText(correctData.getData());
+                        textDetail.setIntervalId(correctData.getPrescriptionNum());
+                        textDetail.setTextDataId(textData.getId());
+                        try{
+                            this.insertSelective(textDetail);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    });
+
+                }else {
+                    //4.4 已有记录，更新
+                    correctDataGroupedList.forEach(correctData -> {
+                        TextDetailExample textDetailExampleUpdate = new TextDetailExample();
+                        textDetailExampleUpdate.createCriteria().andTextDataIdEqualTo(textData.getId()).andIntervalIdEqualTo(correctData.getPrescriptionNum());
+
+                        TextDetail textDetail = new TextDetail();
+                        textDetail.setGmtModified(new Date());
+                        textDetail.setText(correctData.getData());
+
+                        try{
+                            this.updateByExampleSelective(textDetail, textDetailExampleUpdate);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    });
+                }
+
             }
         });
         isSucceed = true;
