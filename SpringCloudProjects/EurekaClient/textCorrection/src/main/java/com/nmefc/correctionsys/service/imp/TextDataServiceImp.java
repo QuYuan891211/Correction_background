@@ -202,7 +202,7 @@ public class TextDataServiceImp extends BaseServiceImp<TextData,Integer,TextData
             }
         }else {
             result.setCode(ResultCodeEnum.FAIL.getCode());
-            result.setMessage(ResultMsgEnum.ERROR_CHECKER.getMsg());
+            result.setMessage(ResultMsgEnum.NULL_CHECKER.getMsg());
             return result;
         }
     }
